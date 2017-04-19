@@ -7,8 +7,9 @@
 
 window.portInterval = window.setTimeout(function(){
   console.log("hey there")
-  $.get("http://localhost:3000/ohhay/58f6d1a9475cb20479313f54", function(data){
+  $.get("http://localhost:3000/ohhay", function(data){
     console.log('fukc')
+
     if($('#butterbar').length == 0)
     {
         $('<div></div>')
@@ -16,11 +17,27 @@ window.portInterval = window.setTimeout(function(){
         .appendTo('body');
     }
 
-    // width = document.width;
-    // butterBarWidth = $('#butterbar').width();
-    //
-    // var left = ((width - butterBarWidth) / 2);
-    //
+    $('#butterbar').submit(function(event){
+      event.preventDefault();
+      $.ajax({
+        url:'/submitdatshit',
+        method:'POST',
+        data:{firstname:$('#firstname').val(), lastname: $('#lastname').val(),
+              menuitem:$('#menuitem').val()},
+        dataType: 'json',
+        success: function(data){
+          console.log("FUCK ME UP TIMES TWENYTY")
+          console.log(data)
+        }
+      })
+    })
+
+    width = document.width;
+    butterBarWidth = $('#butterbar').width();
+
+    var left = ((width - butterBarWidth) / 2);
+    console.log("fuck me up fam " + data)
+
     // $('#butterbar').css({
     //     'top': 20,
     //     'left': left,
@@ -30,7 +47,7 @@ window.portInterval = window.setTimeout(function(){
     //     'background-color':pink
     // });
     //
-    // $('#butterbar').html(data.firstname);
+
     //
     // $('#butterbar').show('highlight',{},2000, function(){
     //     setTimeout(function(){
