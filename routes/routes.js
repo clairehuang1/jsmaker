@@ -4,6 +4,10 @@ var models = require('../models');
 var User = models.User;
 var Package = models.Package;
 
+router.get('/', function(req, res, next) {
+  res.render('home');
+});
+
 router.post('/submitdatshit', function(req,res){
   var newPackage = new Package({
     firstname: req.body.firstname,
