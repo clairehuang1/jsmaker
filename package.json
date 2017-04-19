@@ -1,0 +1,19 @@
+{
+  "name": "jsmaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nodemon app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clairehuang1/jsmaker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clairehuang1/jsmaker/issues"
+  },
+  "homepage": "https://github.com/clairehuang1/jsmaker#readme"
+}
