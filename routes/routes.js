@@ -5,10 +5,13 @@ var User = models.User;
 var Package = models.Package;
 
 router.get('/', function(req, res, next) {
+  console.log(" i am reached")
   res.render('home');
 });
 
 router.post('/submitdatshit', function(req,res){
+  console.log("ohhay")
+  console.log(req.body)
   var newPackage = new Package({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
@@ -17,12 +20,13 @@ router.post('/submitdatshit', function(req,res){
   newPackage.save()
   .then(function(package){
     res.status(200).json({
-       package:package
+       package:package,
+       menuitme: package.menuitem
      })
   });
 })
 
-router.get('/ohhay/:id', function(req,res){
+router.get('/ohhay', function(req,res){
   console.log("YOYO")
   res.send();
   // Package.findById(req.params.id)
