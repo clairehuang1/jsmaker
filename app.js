@@ -38,9 +38,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.get('/html/test1.html', function(req, res) {
-  res.sendFile(__dirname + "./public/html/test1.html");
-});
+// app.get('/html/test1', function(req, res) {
+//   res.sendFile(__dirname + "./public/html/test1.html");
+// });
 
 // app.use('/', routes);
 // Passport
