@@ -1,0 +1,37 @@
+<h1 class="transform">ohhay</h1>
+<div id="customeridtxt">
+  <h1> here is your id: </h1>
+  <p>{{customerid}} </p>
+</div>
+
+
+
+<h2> dis is what you do:</h2>
+<h2> include this snippet in your home page file, replace INSERT YOUR ID with your id given above</h2>
+<xmp class="code">
+
+  <script client-id="INSERT YOUR ID">
+
+    var s=document.createElement('script');
+    s.setAttribute('src','https://code.jquery.com/jquery.js');
+    var t=document.createElement('script');
+    t.setAttribute('src', "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js");
+    document.getElementsByTagName('head')[0].appendChild(t);
+
+    window.portInterval = window.setTimeout(function(){
+      $.get("/html/test1.html", function(html){
+        $("body").append(html);
+      });
+    }, 500);
+  </script>
+
+</xmp>
+
+<form action = "/changeModal" method="post">
+  menu item:<br>
+  <input class="placeholders" type="text" value="{{menuitem}}" name="menuitem"><br>
+  color :<br>
+  <input class="placeholders" type="text" value = "{{color}}" name="color"><br>
+
+  <button class="btn">CLICK 4 SUM MAGIC</button>
+</form>

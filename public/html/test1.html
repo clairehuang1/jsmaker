@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<!--  YOU NEED JQUERY AND UNDERSCORE TO BE INSTALLED HERE -->
+<html>
+<script type="text/template" class="template">
+<a class="clickspecial" href="#openModal">Click for special</a>
+
+  <div id="openModal" class="modalDialog">
+    <div>
+      <a href="#close"title="Close" class="close">X</a>
+      <h1> hi here is the special of the day: </h1>
+      <%- rc.menuitem %>
+    </div>
+</div>
+    <!-- <h2>
+        <%- rc.listTitle %>
+    </h2>
+
+    <ul>
+        <% _.each( rc.listItems, function( listItem ){ %>
+
+            <li>
+
+                <%- listItem.name %>
+
+                <% if ( listItem.hasOlympicGold ){ %>
+                    <em>*</em>
+                <% } %>
+
+            </li>
+
+        <% }); %>
+    </ul>
+
+
+    <% var showFootnote = _.any(
+        _.pluck( rc.listItems, "hasOlympicGold" )
+    ); %>
+
+
+    <% if ( showFootnote ){ %>
+
+        <p style="font-size: 12px ;">
+
+            <em>* Olympic gold medalist</em>
+
+        </p>
+
+    <% } %> -->
+
+</script>
+
+
+
+<script>
+
+  _.templateSettings.variable = "rc";
+   // Grab the HTML out of our template tag and pre-compile it.
+   var template = _.template(
+       $( "script.template" ).html()
+   );
+
+  console.log("hey there")
+  var clientid=$("script[client-id]").attr("client-id")
+  console.log(clientid)
+
+    //
+    // if($('#butterbar').length == 0)
+    // {
+    //     $('<div></div>')
+    //     .attr({id: 'butterbar'})
+    //     .appendTo('body');
+    // }
+  //   $(function() {
+  //   $("#butterbar").append($('<form/>', {action:'/submitdatshit', method:'POST '})
+  //   .append($('<label for="">First Name</label>'),$('<input/>', {text: 'firstname', placeholder:'first name',type:'text', id:'firstname'}),
+  //   $('<br/>'),
+  //   $('<label for="">Last Name</label>'),
+  //   $('<input/>', {text:"lastname", placeholder:'last name', type:'text', id:'lastname'}),$('<br/>'),
+  //   $('<label for="">Menu Item</label>'),
+  //   $('<input/>', {text:'menuitem', placeholder:'menu item',type:'menuitem', id:'menuitem'}),
+  //   $('<br/>'),
+  //   $('<button>submit me<button/>'),
+  //   $('<br/>')
+  // ))
+  // })
+    // $('#butterbar').submit(function(event){
+    //   event.preventDefault();
+    //   $.ajax({
+    //     url:'/submitdatshit',
+    //     method:'POST',
+    //     data:{firstname:$('#firstname').val(), lastname: $('#lastname').val(),
+    //           menuitem:$('#menuitem').val()},
+    //     dataType: 'json',
+    //     success: function(data){
+    //       console.log("FUCK ME UP TIMES TWENYTY")
+    //       console.log(data)
+    //     }
+    //   })
+    // })
+
+    console.log("asuh betches "+ clientid)
+    $.ajax({
+      url:'/finished/'+clientid,
+      type:'GET',
+      success:function(data){
+
+        console.log(data, 'hallo')
+        var templateData = {
+          menuitem:data.menuitem,
+          color:data.color
+        }
+        $('body').append(
+               template( templateData )
+           );
+      }
+    })
+
+    $("#target").click(function(){
+      event.preventDefault();
+      $(".modalDialog").toggle();
+    })
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</html>
