@@ -1,52 +1,27 @@
 <!DOCTYPE html>
 
-<!--  YOU NEED JQUERY AND UNDERSCORE TO BE INSTALLED HERE -->
+<!--  YOU DO NEED JQUERY AND UNDERSCORE TO BE INSTALLED HERE -->
 <html>
 <script type="text/template" class="template">
+<style type="text/css">
+  .modalDialog {
+    color:<%- rc.color %>;
+  }
+</style>
 <a class="clickspecial" href="#openModal">Click for special</a>
 
   <div id="openModal" class="modalDialog">
     <div>
+
       <a href="#close"title="Close" class="close">X</a>
       <h1> hi here is the special of the day: </h1>
       <%- rc.menuitem %>
+      <h1> for a low, low cost of </h1>
+      <%- rc.price %>
+
     </div>
 </div>
-    <!-- <h2>
-        <%- rc.listTitle %>
-    </h2>
 
-    <ul>
-        <% _.each( rc.listItems, function( listItem ){ %>
-
-            <li>
-
-                <%- listItem.name %>
-
-                <% if ( listItem.hasOlympicGold ){ %>
-                    <em>*</em>
-                <% } %>
-
-            </li>
-
-        <% }); %>
-    </ul>
-
-
-    <% var showFootnote = _.any(
-        _.pluck( rc.listItems, "hasOlympicGold" )
-    ); %>
-
-
-    <% if ( showFootnote ){ %>
-
-        <p style="font-size: 12px ;">
-
-            <em>* Olympic gold medalist</em>
-
-        </p>
-
-    <% } %> -->
 
 </script>
 
@@ -108,7 +83,8 @@
         console.log(data, 'hallo')
         var templateData = {
           menuitem:data.menuitem,
-          color:data.color
+          color:data.color,
+          price:data.price
         }
         $('body').append(
                template( templateData )

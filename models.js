@@ -10,7 +10,8 @@ var userSchema = mongoose.Schema({
 var package = mongoose.Schema({
   menuitem: String,
   color: String,
-  clientId:String
+  clientId:String,
+  price: String
 })
 
 

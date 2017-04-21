@@ -1,5 +1,5 @@
 dev.markdown
-.env
+
 node_modules/
 npm-debug.log
 .tmp
@@ -7,4 +7,3 @@ npm-debug.log
 .idea/
 *.swp
 connect.js
-env.sh

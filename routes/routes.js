@@ -24,7 +24,8 @@ router.post('/submitdatshit', function(req,res){
 
        package:package,
        menuitem: package.menuitem,
-       color: package.color
+       color: package.color,
+       price:package.price
      })
   });
 })
@@ -34,7 +35,8 @@ router.post('/ohhay/:id', function(req,res){
   Package.findById(req.params.id).exec()
   .then(function(package){
     res.status(200).json({
-      menuitem:package.menuitem
+      menuitem:package.menuitem,
+      price: package.price
     })
   })
 
@@ -68,6 +70,7 @@ router.post('/changeModal', function(req,res){
     package.clientId = req.user._id
     package.menuitem=req.body.menuitem
     package.color=req.body.color
+    package.price=req.body.price
     return package.save();
   })
   .then(function(package){
@@ -103,7 +106,8 @@ router.get('/finished/:clientid', function(req,res){
     res.status(200).json({
        package: package,
        menuitem: package.menuitem,
-       color: package.color
+       color: package.color,
+       price: package.price
      })
     // res.status(200).json({
     //   clur : true
