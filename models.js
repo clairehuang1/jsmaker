@@ -3,13 +3,14 @@ var mongoose = require('mongoose');
 var userSchema = mongoose.Schema({
   username: String,
   password: String,
-  phone: String
+  restaurant: String,
+  packageid:String
 });
 
 var package = mongoose.Schema({
-  firstname:String,
-  lastname: String,
-  menuitem: String
+  menuitem: String,
+  color: String,
+  clientId:String
 })
 
 
