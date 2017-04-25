@@ -11,7 +11,9 @@ var package = mongoose.Schema({
   menuitem: String,
   color: String,
   clientId:String,
-  price: String
+  price: String,
+  backgroundColor: String,
+  menupic: { data: Buffer, contentType: String }
 })
 
 

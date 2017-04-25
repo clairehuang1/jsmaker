@@ -16,8 +16,27 @@ body {
   text-transform: lowercase;
   text-decoration: none;
 }
+#organize{
+  margin:25px 0;
+}
+.txt-img{
+  background-image: url('./example.png')
+
+}
+.txt-img-specs{
+  background-position:  center center;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	z-index: -9000;
+}
 .code{
-  border-style: solid;
+    text-transform: none;
+    border-style: solid;
     border-width: 5px;
     background-color: white;
     color:black;
@@ -31,98 +50,8 @@ body {
   font-size: 30px;
 }
 .btn{
-  height:50px;
-  width:200px;
-}
-.modalDialog {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: rgba(0,0,0,0.8);
-	z-index: -1,auto;
-	opacity:0;
-	-webkit-transition: opacity 400ms ease-in;
-	-moz-transition: opacity 400ms ease-in;
-	transition: opacity 400ms ease-in;
-	pointer-events: none;
-}
-.modalDialog:target {
-	opacity:1;
-	pointer-events: auto;
-}
-.clickspecial{
-  font-size: 50px;
-  padding:40px;
-  padding-bottom:300px;
-  padding-left:400px;
-}
-.modalDialog > div {
-	width: 400px;
-	position: relative;
-	margin: 10% auto;
-	padding: 5px 20px 13px 20px;
-	border-radius: 10px;
-	background: #fff;
-	background: -moz-linear-gradient(#fff, #999);
-	background: -webkit-linear-gradient(#fff, #999);
-	background: -o-linear-gradient(#fff, #999);
-}
+  /*height:50px;
+  width:200px;*/
 
-.close {
-	background: #606061;
-	color: #FFFFFF;
-	line-height: 25px;
-	position: absolute;
-	right: -12px;
-	text-align: center;
-	top: -10px;
-	width: 24px;
-	text-decoration: none;
-	font-weight: bold;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
-	border-radius: 12px;
-	-moz-box-shadow: 1px 1px 3px #000;
-	-webkit-box-shadow: 1px 1px 3px #000;
-	box-shadow: 1px 1px 3px #000;
-}
-.modal{
-  font-size: 300px;
-}
-.close:hover { background: #00d9ff; }
-#displaybar{
-  z-index: -1,auto;
-  position:fixed;
-  height: 1000px;
-  width:1000px;
-  border: 2px solid #f0c36d;
-  background-color: pink;
-
-}
-#razzle{
-  color: pink
-}
-#butterbar
-{
-    z-index: -1,auto;
-    position:relative;
-    height: 500px;
-    width:500px;
-    border: 2px solid #f0c36d;
-    background-color: #f9edbe;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /*
-    top: 30px;
-    left: 500px;
-    line-height: 200%;
-    color: #555;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-radius: 5px;
-    display: none;*/
-
+  display:inline-block;
 }
