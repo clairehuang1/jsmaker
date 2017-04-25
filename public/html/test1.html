@@ -3,50 +3,115 @@
 <!--  YOU NEED JQUERY AND UNDERSCORE TO BE INSTALLED HERE -->
 <html>
 <script type="text/template" class="template">
+<style type="text/css">
+  .modalDialog {
+    color:<%- rc.color %>;
+
+  }
+  #testing{
+    background-color: <%- rc.backgroundColor %>;
+  }
+  .modalDialog {
+  	position: absolute;
+  	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+  	background: rgba(0,0,0,0.8);
+  	z-index: -1,auto;
+  	opacity:0;
+  	-webkit-transition: opacity 400ms ease-in;
+  	-moz-transition: opacity 400ms ease-in;
+  	transition: opacity 400ms ease-in;
+  	pointer-events: none;
+  }
+  .modalDialog:target {
+  	opacity:1;
+  	pointer-events: auto;
+  }
+  .clickspecial{
+    font-size: 50px;
+    padding:40px;
+    padding-bottom:400px;
+    padding-left:300px;
+  }
+  .modalDialog > div {
+  	width: 400px;
+    min-height: 200px;
+  	position: relative;
+  	margin: 10% auto;
+  	padding: 5px 20px 13px 20px;
+  	border-radius: 10px;
+  	background: #fff;
+  	background: -moz-linear-gradient(#fff, #999);
+  	/*background: -o-linear-gradient(#fff, #999);*/
+  }
+  .wrapper{
+    display:flex;
+    flex-direction: column;
+    overflow:auto;
+
+
+  }
+  .inside{
+    flex-direction: column;
+    font-size: 20px;
+  }
+
+  .close {
+  	background: #606061;
+  	color: #FFFFFF;
+  	line-height: 25px;
+  	position: absolute;
+  	right: -12px;
+  	text-align: center;
+  	top: -10px;
+  	width: 24px;
+  	text-decoration: none;
+  	font-weight: bold;
+  	-webkit-border-radius: 12px;
+  	-moz-border-radius: 12px;
+  	border-radius: 12px;
+  	-moz-box-shadow: 1px 1px 3px #000;
+  	-webkit-box-shadow: 1px 1px 3px #000;
+  	box-shadow: 1px 1px 3px #000;
+  }
+  .modal{
+    font-size: 300px;
+  }
+  .close:hover { background: #00d9ff; }
+  #displaybar{
+    z-index: -1,auto;
+    position:fixed;
+    height: 1000px;
+    width:1000px;
+    border: 2px solid #f0c36d;
+    background-color: pink;
+
+  }
+</style>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
 <a class="clickspecial" href="#openModal">Click for special</a>
 
   <div id="openModal" class="modalDialog">
-    <div>
+    <div id="testing">
+
       <a href="#close"title="Close" class="close">X</a>
-      <h1> hi here is the special of the day: </h1>
-      <%- rc.menuitem %>
+      <div class="wrapper">
+        <div class="inside">
+          <h1> hi here is the special of the day: <%- rc.menuitem %></h1>
+
+          <h1> for a low, low cost of <%- rc.price %></h1>
+
+      </div>
+    </div>
+
     </div>
 </div>
-    <!-- <h2>
-        <%- rc.listTitle %>
-    </h2>
 
-    <ul>
-        <% _.each( rc.listItems, function( listItem ){ %>
-
-            <li>
-
-                <%- listItem.name %>
-
-                <% if ( listItem.hasOlympicGold ){ %>
-                    <em>*</em>
-                <% } %>
-
-            </li>
-
-        <% }); %>
-    </ul>
-
-
-    <% var showFootnote = _.any(
-        _.pluck( rc.listItems, "hasOlympicGold" )
-    ); %>
-
-
-    <% if ( showFootnote ){ %>
-
-        <p style="font-size: 12px ;">
-
-            <em>* Olympic gold medalist</em>
-
-        </p>
-
-    <% } %> -->
 
 </script>
 
@@ -64,51 +129,17 @@
   var clientid=$("script[client-id]").attr("client-id")
   console.log(clientid)
 
-    //
-    // if($('#butterbar').length == 0)
-    // {
-    //     $('<div></div>')
-    //     .attr({id: 'butterbar'})
-    //     .appendTo('body');
-    // }
-  //   $(function() {
-  //   $("#butterbar").append($('<form/>', {action:'/submitdatshit', method:'POST '})
-  //   .append($('<label for="">First Name</label>'),$('<input/>', {text: 'firstname', placeholder:'first name',type:'text', id:'firstname'}),
-  //   $('<br/>'),
-  //   $('<label for="">Last Name</label>'),
-  //   $('<input/>', {text:"lastname", placeholder:'last name', type:'text', id:'lastname'}),$('<br/>'),
-  //   $('<label for="">Menu Item</label>'),
-  //   $('<input/>', {text:'menuitem', placeholder:'menu item',type:'menuitem', id:'menuitem'}),
-  //   $('<br/>'),
-  //   $('<button>submit me<button/>'),
-  //   $('<br/>')
-  // ))
-  // })
-    // $('#butterbar').submit(function(event){
-    //   event.preventDefault();
-    //   $.ajax({
-    //     url:'/submitdatshit',
-    //     method:'POST',
-    //     data:{firstname:$('#firstname').val(), lastname: $('#lastname').val(),
-    //           menuitem:$('#menuitem').val()},
-    //     dataType: 'json',
-    //     success: function(data){
-    //       console.log("FUCK ME UP TIMES TWENYTY")
-    //       console.log(data)
-    //     }
-    //   })
-    // })
-
-    console.log("asuh betches "+ clientid)
     $.ajax({
-      url:'/finished/'+clientid,
+      url:'http://localhost:5000/finished/'+clientid,
       type:'GET',
       success:function(data){
 
         console.log(data, 'hallo')
         var templateData = {
           menuitem:data.menuitem,
-          color:data.color
+          color:data.color,
+          price:data.price,
+          backgroundColor: data.backgroundColor
         }
         $('body').append(
                template( templateData )

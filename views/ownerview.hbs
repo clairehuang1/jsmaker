@@ -3,6 +3,20 @@
   <h1> here is your id: </h1>
   <p>{{customerid}} </p>
 </div>
+<script>
+  function readURL(e) {
+      if (this.files && this.files[0]) {
+          var reader = new FileReader();
+          $(reader).load(function(e) { $('#blah').attr('src', e.target.result);
+          console.log(e.target.result);
+          console.log("hurrow")
+          });
+          reader.readAsDataURL(this.files[0]);
+      }
+  }
+
+  $("#imgInp").change(readURL);
+</script>
 
 
 
@@ -25,13 +39,25 @@
     }, 500);
   </script>
 
+
 </xmp>
 
 <form action = "/changeModal" method="post">
-  menu item:<br>
-  <input class="placeholders" type="text" value="{{menuitem}}" name="menuitem"><br>
-  color :<br>
-  <input class="placeholders" type="text" value = "{{color}}" name="color"><br>
+  <div>
+    Special of the day:<br>
+    <input class="placeholders" type="text" value="{{menuitem}}" name="menuitem"><br>
+    For how much tho :<br>
+    <input class="placeholders" type="text" value = "{{price}}" name="price"><br>
+    Upload a pic of your delicious dish:
+    <input type='file' id="imgInp" onchange="readURL(this);" name="menupic" /><br>
+    <img id="blah" src="#" alt="your image" /><br>
+    Customize the color of your text:<br>
+    <input class="placeholders" type="text" value = "{{color}}" name="color"><br>
+    Customize the color of your background:<br>
+    <input class="placeholders" type="text" value = "{{backgroundColor}}" name="backgroundColor"><br>
 
-  <button class="btn">CLICK 4 SUM MAGIC</button>
+    <div id="organize">
+      <button class="btn">CLICK TO SEE A SAMPLE OF YOUR POPUP ON BOBA GUYS</button>
+    <div>
+</div>
 </form>

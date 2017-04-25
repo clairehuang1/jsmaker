@@ -9,6 +9,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var mongoose = require('mongoose');
 var connect = process.env.MONGODB_URI;
+var multer = require('multer');
+
 
 var REQUIRED_ENV = "SECRET MONGODB_URI".split(" ");
 
@@ -36,11 +38,14 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser({uploadDir:'./uploads'}));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.get('/html/test1.html', function(req, res) {
-  res.sendFile(__dirname + "./public/html/test1.html");
-});
+// app.get('/html/test1', function(req, res) {
+//   res.sendFile(__dirname + "./public/html/test1.html");
+// });
+
 
 // app.use('/', routes);
 // Passport
@@ -52,6 +57,19 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '/tmp/my-uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+
+var upload = multer({ storage: storage })
+
+
 
 passport.serializeUser(function(user, done) {
   done(null, user._id);
@@ -127,7 +145,7 @@ app.get('/*', function(req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 app.listen(port);
 console.log('Express started. Listening on port %s', port);
 

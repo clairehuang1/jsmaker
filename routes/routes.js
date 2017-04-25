@@ -3,11 +3,15 @@ var router = express.Router();
 var models = require('../models');
 var User = models.User;
 var Package = models.Package;
+var fs = require('fs');
+
+
 
 router.get('/', function(req, res, next) {
   console.log(" i am reached")
   res.render('home');
 });
+
 
 //after they log in
 router.post('/submitdatshit', function(req,res){
@@ -16,7 +20,8 @@ router.post('/submitdatshit', function(req,res){
   //if package ref does not exist,
   var newPackage = new Package({
     menuitem: req.body.menuitem,
-    color: req.body.color
+    color: req.body.color,
+    backgroundColor:req.body.backgroundColor
   })
   newPackage.save()
   .then(function(package){
@@ -24,7 +29,9 @@ router.post('/submitdatshit', function(req,res){
 
        package:package,
        menuitem: package.menuitem,
-       color: package.color
+       color: package.color,
+       price:package.price,
+       backgroundColor: package.backgroundColor
      })
   });
 })
@@ -34,7 +41,8 @@ router.post('/ohhay/:id', function(req,res){
   Package.findById(req.params.id).exec()
   .then(function(package){
     res.status(200).json({
-      menuitem:package.menuitem
+      menuitem:package.menuitem,
+      price: package.price
     })
   })
 
@@ -64,10 +72,17 @@ router.post('/changeModal', function(req,res){
     }
   }).then(function(package){
     console.log("asuh bitches")
-    console.log(req.body)
+
+
     package.clientId = req.user._id
     package.menuitem=req.body.menuitem
     package.color=req.body.color
+    package.price=req.body.price
+    package.backgroundColor=req.body.backgroundColor
+    console.log(req.body)
+    console.log(req.files)
+    // package.menupic.data=fs.readFileSync(req.body.menupic)
+    // package.menupic.contentType='image/png'
     return package.save();
   })
   .then(function(package){
@@ -95,7 +110,7 @@ router.post('/changeModal', function(req,res){
 router.get('/finished/:clientid', function(req,res){
   console.log("sup")
   console.log(req.params.clientid)
-  console.log(req.user._id)
+
   Package.findOne({clientId:req.params.clientid}).exec()
   .then(function(package){
     console.log("package is reached");
@@ -103,7 +118,9 @@ router.get('/finished/:clientid', function(req,res){
     res.status(200).json({
        package: package,
        menuitem: package.menuitem,
-       color: package.color
+       color: package.color,
+       price: package.price,
+       backgroundColor: package.backgroundColor
      })
     // res.status(200).json({
     //   clur : true
