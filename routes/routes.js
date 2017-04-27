@@ -6,12 +6,11 @@ var Package = models.Package;
 var fs = require('fs');
 
 
-
-router.get('/', function(req, res, next) {
-  console.log(" i am reached")
-  res.render('home');
-});
-
+// 
+// router.get('/', function(req, res, next) {
+//   console.log(" i am reached")
+//   res.render('home');
+// });
 
 //after they log in
 router.post('/submitdatshit', function(req,res){
