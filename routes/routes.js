@@ -4,13 +4,18 @@ var models = require('../models');
 var User = models.User;
 var Package = models.Package;
 var fs = require('fs');
+var AWS = require('aws-sdk');
+var path = require('path');
+var handlebars = require('handlebars')
 
+//AWS.config.loadFromPath('./config.json');
 
-// 
-// router.get('/', function(req, res, next) {
-//   console.log(" i am reached")
-//   res.render('home');
-// });
+var s3 = new AWS.S3();
+
+router.get('/', function(req, res, next) {
+  console.log(" i am reached")
+  res.render('home');
+});
 
 //after they log in
 router.post('/submitdatshit', function(req,res){
@@ -87,12 +92,143 @@ router.post('/changeModal', function(req,res){
   .then(function(package){
     packageid = package._id;
     menuitem=package.menuitem;
+
+var codeIsLife = `
+var s=document.createElement('script');
+s.setAttribute('src','https://code.jquery.com/jquery.js');
+document.getElementsByTagName('head')[0].appendChild(s);
+var t=document.createElement('script');
+t.setAttribute('src', "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js");
+document.getElementsByTagName('head')[0].appendChild(t);
+
+var paramGetter = function(name){
+      console.log('i am inside the getter')
+
+      var name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+      var regexString = "[\\?&]" + name + "=([^&#]*)";
+      var regex = new RegExp(regexString);
+      var found = regex.exec(window.location.search);
+      // console.log("getParameterByName",name, context, found)
+      if(found == null)
+        return "";
+      else
+        return decodeURIComponent(found[1].replace(/\+/g, " "));
+    }
+
+if (paramGetter("tester") === "yes") {
+  console.log('ok test mode');
+}
+
+    window.portInterval = window.setTimeout(function(){
+        var txt1 = "Today's special is {{food}} for price of {{price}}";
+        var button = document.createElement("BUTTON");
+        button.setAttribute("id", "myBtn");
+        //$("button").text("Click me");
+        var modal = document.createElement("div");
+        modal.setAttribute("id", "myModal");
+        modal.setAttribute("class", "modal");
+        var contentDiv = document.createElement("div");
+        contentDiv.setAttribute("class", "modal-content");
+        var header = document.createElement("div");
+        header.setAttribute("class", "modal-header");
+        header.style.color = "{{color}}";
+        contentDiv.append(header);
+        var closer = document.createElement("span");
+        closer.setAttribute("class", "close");
+        header.append(txt1);
+        var txt2 = $("<p></p>").text("LisaHoong");
+        $("body").append(button, contentDiv);
+
+        var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+    }, 500);
+    `;
+
+var style = `<style>
+.modal-content {
+   position: relative;
+   background-color: #fefefe;
+   margin: auto;
+   padding: 0;
+   border: 1px solid #888;
+   width: 80%;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+   -webkit-animation-name: animatetop;
+   -webkit-animation-duration: 0.4s;
+   animation-name: animatetop;
+   animation-duration: 0.4s
+}
+</style>`
+
+var cssFileStream = fs.createReadStream(__dirname + '/modal.css');
+cssFileStream.on('error', function(err) {
+  console.log('File error:', err);
+})
+
+//console.log('code is: ', codeIsLife);
+
+    var source = "console.log('hello {{name}} i am watching you i hate this shit')";
+    var template = handlebars.compile(source);
+    var data = {"name": "kevin",
+    "color": package.color,
+    "food": package.menuitem,
+    "price": package.price};
+    var result = template(data);
+    console.log('result is', result);
+
+    var s3Params = {Bucket: 'jsbuilder', Key: 'hoongs.js', Body:result};
+
+    s3.upload(s3Params, function(err, returnedData) {
+      if (err) {
+        console.log("Error: ", err);
+      }
+      if (returnedData) {
+        console.log("JS upload success: ", returnedData.Location);
+      }
+    });
+
+    s3.upload({Bucket: 'jsbuilder', Key: 'hoongsStyle.css', Body: cssFileStream}, function(err, returnedData) {
+      if (err) {
+        console.log("Error: ", err);
+      }
+      if (returnedData) {
+        console.log("CSS upload success: ", returnedData.Location);
+      }
+    });
+
+
+
+
     return User.findById(req.user._id).exec()
 
   }).then(function(user){
     user.packageid=packageid;
     return user.save();
   }).then(function(user){
+
     console.log(menuitem)
     console.log(  "sfkhfsafhas MEEEE")
     res.render("sample",{
