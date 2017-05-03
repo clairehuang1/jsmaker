@@ -4,6 +4,7 @@ var models = require('../models');
 var User = models.User;
 var Package = models.Package;
 var fs = require('fs');
+const $ = require('jquery');
 var AWS = require('aws-sdk');
 var path = require('path');
 var handlebars = require('handlebars')
@@ -31,12 +32,12 @@ router.post('/submitdatshit', function(req,res){
   .then(function(package){
     res.status(200).json({
 
-       package:package,
-       menuitem: package.menuitem,
-       color: package.color,
-       price:package.price,
-       backgroundColor: package.backgroundColor
-     })
+      package:package,
+      menuitem: package.menuitem,
+      color: package.color,
+      price:package.price,
+      backgroundColor: package.backgroundColor
+    })
   });
 })
 
@@ -93,109 +94,62 @@ router.post('/changeModal', function(req,res){
     packageid = package._id;
     menuitem=package.menuitem;
 
-var codeIsLife = `
-var s=document.createElement('script');
-s.setAttribute('src','https://code.jquery.com/jquery.js');
-document.getElementsByTagName('head')[0].appendChild(s);
-var t=document.createElement('script');
-t.setAttribute('src', "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js");
-document.getElementsByTagName('head')[0].appendChild(t);
+    var jsFileStream;
 
-var paramGetter = function(name){
-      console.log('i am inside the getter')
+    if (package.type === "popup") {
 
-      var name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-      var regexString = "[\\?&]" + name + "=([^&#]*)";
-      var regex = new RegExp(regexString);
-      var found = regex.exec(window.location.search);
-      // console.log("getParameterByName",name, context, found)
-      if(found == null)
-        return "";
-      else
-        return decodeURIComponent(found[1].replace(/\+/g, " "));
+      //Read in the right file for a pop-up widget
+      jsFileStream = fs.readFileSync(__dirname + "/widgets/popup.js", 'utf8', (err, data) => {
+        if (err) {
+          console.log("Error: ", err);
+        } else {
+          console.log("Successfully read in file.");
+        }
+      })
+
     }
 
-if (paramGetter("tester") === "yes") {
-  console.log('ok test mode');
-}
-
-    window.portInterval = window.setTimeout(function(){
-        var txt1 = "Today's special is {{food}} for price of {{price}}";
-        var button = document.createElement("BUTTON");
-        button.setAttribute("id", "myBtn");
-        //$("button").text("Click me");
-        var modal = document.createElement("div");
-        modal.setAttribute("id", "myModal");
-        modal.setAttribute("class", "modal");
-        var contentDiv = document.createElement("div");
-        contentDiv.setAttribute("class", "modal-content");
-        var header = document.createElement("div");
-        header.setAttribute("class", "modal-header");
-        header.style.color = "{{color}}";
-        contentDiv.append(header);
-        var closer = document.createElement("span");
-        closer.setAttribute("class", "close");
-        header.append(txt1);
-        var txt2 = $("<p></p>").text("LisaHoong");
-        $("body").append(button, contentDiv);
-
-        var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    else if (package.type === "banner") {
+      jsFileStream = fs.readFileSync(__dirname + "/widgets/banner.js", 'utf8', (err, data) => {
+        if (err) {
+          console.log("Error: ", err);
+        } else {
+          console.log("Successfully read in file.");
+        }
+      })
     }
-}
 
-    }, 500);
-    `;
+    else if (package.type === "panel") {
+      jsFileStream = fs.readFileSync(__dirname + "/widgets/panel.js", 'utf8', (err, data) => {
+        if (err) {
+          console.log("Error: ", err);
+        } else {
+          console.log("Successfully read in file.");
+        }
+      })
+    }
 
-var style = `<style>
-.modal-content {
-   position: relative;
-   background-color: #fefefe;
-   margin: auto;
-   padding: 0;
-   border: 1px solid #888;
-   width: 80%;
-   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-   -webkit-animation-name: animatetop;
-   -webkit-animation-duration: 0.4s;
-   animation-name: animatetop;
-   animation-duration: 0.4s
-}
-</style>`
+    else {
+      //we done fukked lol
+    }
 
-var cssFileStream = fs.createReadStream(__dirname + '/modal.css');
-cssFileStream.on('error', function(err) {
-  console.log('File error:', err);
-})
+    var codeIsLife = "console.log('hello there')";
 
-//console.log('code is: ', codeIsLife);
 
+    var cssFileStream = fs.createReadStream(__dirname + '/modal.css');
+    cssFileStream.on('error', function(err) {
+      console.log('File error:', err);
+    })
+
+    //console.log('code is: ', codeIsLife);
+    //console.log('js file stream is: ', jsFileStream);
     var source = "console.log('hello {{name}} i am watching you i hate this shit')";
-    var template = handlebars.compile(source);
+    var template = handlebars.compile(jsFileStream);
     var data = {"name": "kevin",
     "color": package.color,
     "food": package.menuitem,
     "price": package.price};
+
     var result = template(data);
     console.log('result is', result);
 
@@ -237,9 +191,9 @@ cssFileStream.on('error', function(err) {
 
     })
   }).catch(function(err){
-      console.log(err)
-    })
+    console.log(err)
   })
+})
 
 
 router.get('/finished/:clientid', function(req,res){
@@ -251,18 +205,18 @@ router.get('/finished/:clientid', function(req,res){
     console.log("package is reached");
     console.log(package)
     res.status(200).json({
-       package: package,
-       menuitem: package.menuitem,
-       color: package.color,
-       price: package.price,
-       backgroundColor: package.backgroundColor
-     })
+      package: package,
+      menuitem: package.menuitem,
+      color: package.color,
+      price: package.price,
+      backgroundColor: package.backgroundColor
+    })
     // res.status(200).json({
     //   clur : true
     //  })
-   }).catch(function(err){
-       console.log(err)
-     })
+  }).catch(function(err){
+    console.log(err)
+  })
 
 } )
 
