@@ -1,19 +1,18 @@
-# WELCOME TO THE PORTAL :bowtie:
+# Let's build some widgets :bowtie:
 
 ## API Reference 
 
-:exclamation: :exclamation: :exclamation: All requests below with a :lock: next to the title requires the user be registered and signed in first (authentication)
+### `POST` User Update widget
 
-### `POST` User Sign up
+`url: /changeModal`
 
-`url: /signup`
-
-In order for a user to create a new group order, they must be signed up as a registered user. The request to create a new user account must have the following information:
+In order for a user to change their modal, they must be signed in. 
+**Type** must be one of the following- popup, banner, or panel
 
 ```javascript
 {
-"firstName": String,
-"lastName": String,
+"type": String,
+"backgroundColor": Integer,
 "email": String,
 "phone": String,
 "password": String
