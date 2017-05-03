@@ -29,18 +29,29 @@ var auth = require('./routes/auth');
 
 var app = express();
 
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+// app.set('view engine', 'hbs');
+
+
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.get('/html/test1.html', function(req, res) {
-  res.sendFile(__dirname + "./public/html/test1.html");
+// app.get('/html/test1.html', function(req, res) {
+//   res.sendFile(__dirname + "./public/html/test1.html");
+// });
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + "/index.html");
 });
+
+
+
+
 
 // app.use('/', routes);
 // Passport
@@ -85,7 +96,7 @@ passport.use(new LocalStrategy(function(username, password, done) {
 
 
 app.use('/', auth(passport));
-app.use('/', routes);
+// app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -123,11 +134,9 @@ app.use(function(err, req, res, next) {
 // });
 
 
-app.get('/*', function(req, res) {
-  res.sendFile(__dirname + "/index.html");
-});
 
-var port = process.env.PORT || 3000;
+
+var port = process.env.PORT || 8080;
 app.listen(port);
 console.log('Express started. Listening on port %s', port);
 
