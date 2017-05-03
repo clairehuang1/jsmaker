@@ -10,3 +10,4 @@ connect.js
 .env
 env.sh
 config.json
+server
