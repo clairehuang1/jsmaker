@@ -30,14 +30,17 @@ if (paramGetter("tester") === "yes") {
 window.portInterval = window.setTimeout(function(){
 
   var style =`<style>
+  p {
+    color: #000;
+  }
   h2 {
     color: #000;
-    font-size: 36px;
+    font-size: 12px;
   }
 
   h3 {
     color: #000;
-    font-size: 18px;
+    font-size: 12px;
   }
 
   .close {
@@ -58,9 +61,10 @@ window.portInterval = window.setTimeout(function(){
     position: fixed;
     z-index: 1;
     width: 100%;
+    height: 30px;
     top: 0px;
     background-color: #fff;
-    padding: 10px;
+    padding: 2px;
   }
 
   .banner-content-container {
@@ -74,7 +78,7 @@ window.portInterval = window.setTimeout(function(){
   var modal = $(`<div id="banner" class="banner-container">
   <span id='close-modal' class='close'>X</span>
     <div class="banner-content-container">
-    <div><h1>Today's Specials</h1></div>
+    <div><p>Today's Specials</p></div>
     <div><h2>chikin</h2></div>
     <div><h3>fitty dowler velly cheap</h3></div>
     </div>
