@@ -18,6 +18,10 @@ router.get('/', function(req, res, next) {
   res.render('home');
 });
 
+
+
+
+
 //after they log in
 router.post('/submitdatshit', function(req,res){
   console.log("ohhay")
@@ -60,7 +64,8 @@ router.post('/ohhay/:id', function(req,res){
   // })
 })
 router.get('/customer', function(req,res){
-  res.render('ownerview',{customerid: req.user._id})
+
+   res.render('ownerview',{customerid: req.user._id})
 })
 //find the user, check to see if there is a package id
 
@@ -79,11 +84,12 @@ router.post('/changeModal', function(req,res){
     console.log("asuh bitches")
 
 
-    package.clientId = req.user._id
-    package.menuitem=req.body.menuitem
-    package.color=req.body.color
-    package.price=req.body.price
-    package.backgroundColor=req.body.backgroundColor
+    package.clientId = req.user._id;
+    package.type = req.body.type;
+    package.menuitem=req.body.menuitem;
+    package.color=req.body.color;
+    package.price=req.body.price;
+    package.backgroundColor=req.body.backgroundColor;
     console.log(req.body)
     console.log(req.files)
     // package.menupic.data=fs.readFileSync(req.body.menupic)
@@ -99,6 +105,7 @@ router.post('/changeModal', function(req,res){
     if (package.type === "popup") {
 
       //Read in the right file for a pop-up widget
+      console.log('its a popup!');
       jsFileStream = fs.readFileSync(__dirname + "/widgets/popup.js", 'utf8', (err, data) => {
         if (err) {
           console.log("Error: ", err);
@@ -133,16 +140,6 @@ router.post('/changeModal', function(req,res){
       //we done fukked lol
     }
 
-    var codeIsLife = "console.log('hello there')";
-
-
-    var cssFileStream = fs.createReadStream(__dirname + '/modal.css');
-    cssFileStream.on('error', function(err) {
-      console.log('File error:', err);
-    })
-
-    //console.log('code is: ', codeIsLife);
-    //console.log('js file stream is: ', jsFileStream);
     var source = "console.log('hello {{name}} i am watching you i hate this shit')";
     var template = handlebars.compile(jsFileStream);
     var data = {"name": "kevin",
@@ -153,7 +150,9 @@ router.post('/changeModal', function(req,res){
     var result = template(data);
     console.log('result is', result);
 
-    var s3Params = {Bucket: 'jsbuilder', Key: 'hoongs.js', Body:result};
+    var customerKey = package.clientid + '.js';
+
+    var s3Params = {Bucket: 'jsbuilder', Key: customerKey, Body:result};
 
     s3.upload(s3Params, function(err, returnedData) {
       if (err) {
@@ -163,17 +162,6 @@ router.post('/changeModal', function(req,res){
         console.log("JS upload success: ", returnedData.Location);
       }
     });
-
-    s3.upload({Bucket: 'jsbuilder', Key: 'hoongsStyle.css', Body: cssFileStream}, function(err, returnedData) {
-      if (err) {
-        console.log("Error: ", err);
-      }
-      if (returnedData) {
-        console.log("CSS upload success: ", returnedData.Location);
-      }
-    });
-
-
 
 
     return User.findById(req.user._id).exec()
