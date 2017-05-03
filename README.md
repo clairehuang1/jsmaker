@@ -9,7 +9,7 @@
 In order for a user to change their modal, they must be signed in.
 
 **Type** must be one of the following- *popup, banner, *or* panel*
-**backgroundColor** and **textColor** should be a 6 digit Hex code
+**Colors** should be a 6 digit Hex codes
 
 ```javascript
 {
@@ -18,9 +18,13 @@ In order for a user to change their modal, they must be signed in.
 "textColor": Number, 
 "width": Number,
 "height": Number,
+"borderWidth": Number,
+"borderStyle": String, 
+"borderColor": Number,
 "header": String,
 "item": String,
 "price": Number,
+"description": String,
 "duration": String
 }
 ```
