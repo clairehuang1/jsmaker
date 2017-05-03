@@ -6,9 +6,9 @@
 
 `url: /changeModal`
 
-In order for a user to change their modal, they must be signed in. __
+In order for a user to change their modal, they must be signed in.
 
-**Type** must be one of the following- popup, banner, or panel __
+**Type** must be one of the following- popup, banner, or panel
 
 ```javascript
 {
