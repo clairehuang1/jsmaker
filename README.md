@@ -6,13 +6,14 @@
 
 `url: /changeModal`
 
-In order for a user to change their modal, they must be signed in. 
-**Type** must be one of the following- popup, banner, or panel
+In order for a user to change their modal, they must be signed in. __
+
+**Type** must be one of the following- popup, banner, or panel __
 
 ```javascript
 {
 "type": String,
-"backgroundColor": Integer,
+"backgroundColor": Number,
 "email": String,
 "phone": String,
 "password": String
