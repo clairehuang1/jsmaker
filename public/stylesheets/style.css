@@ -12,13 +12,41 @@ body {
   background-color: #CBB4BA;
   color: white;
 }
+#preview{
+  text-transform: none;
+  border-style: solid;
+  border-width: 5px;
+  background-color: white;
+  color:black;
+  min-width: 400px;
+  min-height: 400px;
+
+}
+#organizeOwner{
+  display:flex;
+  justify-content: space-around;
+  padding:30px;
+
+
+}
+
+.forms{
+  margin-left:80px;
+  max-width: 400px;
+  /*padding: 20px 12px 10px 20px;*/
+
+}
+.forms li{
+  padding: 0;
+  display: block;
+  list-style: none;
+  margin: 10px 0 0 0;
+}
 #customeridtxt{
   text-transform: lowercase;
   text-decoration: none;
 }
-#organize{
-  margin:25px 0;
-}
+
 .txt-img{
   background-image: url('./example.png')
 
@@ -34,6 +62,15 @@ body {
 	padding: 0;
 	z-index: -9000;
 }
+#title{
+  padding-top:10px;
+  top:0;
+  left:0;
+  margin: 10px auto;
+  padding-left: 60px;
+  z-index:1000;
+  width:100%;
+}
 .code{
     text-transform: none;
     border-style: solid;
@@ -44,8 +81,11 @@ body {
 .placeholders{
   color:black;
   font-family: 'Raleway', sans-serif;
+  width: 200px;
 
 }
+label,input {width:250px; height: 20px; display:inline-block;}
+
 .title{
   font-size: 30px;
 }
