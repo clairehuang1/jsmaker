@@ -8,6 +8,7 @@ class MainSelector extends Component{
   }
   chooseModal(event){
     this.setState({value:event.target.value})
+    console.log(event.target.value);
   }
   render(){
     return(

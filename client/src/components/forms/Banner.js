@@ -1,14 +1,14 @@
+
 import React, { Component } from 'react';
 
-const CustomForm =({
+
+const Banner =({
   handleSubmit,
-  handleChange,
-  handleImageSubmit,
-  handleImageChange,
-  imagePreview
+  handleChange
 })=>{
 return(
     <form onSubmit={handleSubmit}>
+    <h1> asuh betches dis is the banner </h1>
     <ul className="forms">
       <li>
         <label>
@@ -91,19 +91,10 @@ return(
       <li>
         <label>
           Upload a picture:
+          <input className="placeholders" name="picture" onChange={handleChange}/>
+        </label>
+      </li>
 
-
-          <div className="previewComponent">
-
-              <input name="picture" className="fileInput"
-                type="file"
-                onChange={handleImageChange} />
-                {/* idk if the onsubmit accounts for this */}
-
-
-          </div>
-      </label>
-    </li>
 
         <input type="submit" value="Submit" />
         </ul>
@@ -113,4 +104,4 @@ return(
 }
 
 
-export default CustomForm;
+export default Banner;
