@@ -12,6 +12,18 @@ body {
   background-color: #CBB4BA;
   color: white;
 }
+.forms{
+  margin-left:80px;
+  max-width: 400px;
+  padding: 20px 12px 10px 20px;
+
+}
+.forms li{
+  padding: 0;
+  display: block;
+  list-style: none;
+  margin: 10px 0 0 0;
+}
 #customeridtxt{
   text-transform: lowercase;
   text-decoration: none;
@@ -33,6 +45,15 @@ body {
 	margin: 0;
 	padding: 0;
 	z-index: -9000;
+}
+#title{
+  padding-top:10px;
+  top:0;
+  left:0;
+  margin: 10px auto;
+  padding-left: 60px;
+  z-index:1000;
+  width:100%;
 }
 .code{
     text-transform: none;

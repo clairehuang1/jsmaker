@@ -40,66 +40,92 @@ import React, { Component } from 'react';
 //   }
 const CustomForm =({
   handleSubmit,
-  handleChange
+  handleChange,
+  readURL
 })=>
-  (
-      <form onSubmit={handleSubmit}>
-      <label>
-        Type:
-        <select name="type" onChange={handleChange}>
+(
+    <form action="/" onSubmit={handleSubmit}>
+    <ul className="forms">
 
-          <option value="popup"> Popup </option>
-          <option value="banner"> Banner </option>
-          <option value="panel"> Panel </option>
-        </select>
-      </label>
+      <li>
         <label>
           Background Color:
-          <input name="backgroundColor" onChange={handleChange}/>
+
+          <input className="placeholders" name="backgroundColor" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
         <label>
           Width:
-          <input name="width" onChange={handleChange}/>
+          <input className="placeholders" name="width" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
         <label>
           Height:
-          <input name="height" onChange={handleChange}/>
+          <input className="placeholders" name="height" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
         <label>
           Border Width:
-          <input name="borderWidth" onChange={handleChange}/>
+          <input className="placeholders" name="borderWidth" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
         <label>
           Border Style:
-          <input name="borderStyle" onChange={handleChange}/>
+          <input className="placeholders" name="borderStyle" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
         <label>
           Border Color:
-          <input name="borderColor" onChange={handleChange}/>
+          <input className="placeholders" name="borderColor" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
         <label>
           Header:
-          <input name="header" onChange={handleChange}/>
+          <input className="placeholders" name="header" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
         <label>
           Item:
-          <input name="item" onChange={handleChange}/>
+          <input className="placeholders" name="item" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
         <label>
           Price:
-          <input name="price" onChange={handleChange}/>
+          <input className="placeholders" name="price" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
         <label>
           Description:
-          <input name="description" onChange={handleChange}/>
+          <input className="placeholders" name="description" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
         <label>
           Duration:
-          <input name="duration" onChange={handleChange}/>
+          <input className="placeholders" name="duration" onChange={handleChange}/>
         </label>
+      </li>
+      <li>
+        <label>
+          Upload a picture:
+          <input className="placeholders" name="picture" onChange={readURL}/>
+        </label>
+      </li>
+
 
         <input type="submit" value="Submit" />
+        </ul>
       </form>
+
     )
 
 

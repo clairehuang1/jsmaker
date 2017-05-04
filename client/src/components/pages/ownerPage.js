@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import CustomForm from '../forms/customize-form.js'
+import MainSelector from '../forms/MainSelector'
 
 class OwnerPage extends Component{
   constructor(props){
@@ -54,13 +55,15 @@ class OwnerPage extends Component{
   render(){
 
     return(
-
+      <div>
+      <MainSelector />
       <CustomForm type={this.state.type} backgroundColor={this.state.backgroundColor}
       textColor={this.state.textColor} width={this.state.width} height={this.state.height}
       borderWidth={this.state.borderWidth} borderStyle={this.state.borderStyle}
       borderColor={this.state.borderColor} header={this.state.header} item={this.state.item}
       price={this.state.price} description={this.state.description} duration={this.state.duration}
       handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+      </div>
     )
   }
 }
