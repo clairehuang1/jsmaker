@@ -4,7 +4,7 @@ class App extends Component {
   render() {
     return (
       <div>
-      <div id="heythere">
+      <div>
       <NavBar/>
       </div>
       <div className="container">

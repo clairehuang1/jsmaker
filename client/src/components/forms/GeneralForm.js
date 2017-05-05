@@ -8,18 +8,18 @@ function GeneralForm(props){
   if(type==="popup"){
     return (
       <div>
-      <h1> Editing Popup </h1>
+      <h3> Editing Popup </h3>
       <Popup handleSubmit={props.handleSubmit} handleChange={props.handleChange}/>
     </div>);
   }else if(type==="banner"){
     return (  <div>
-      <h1> Editing Banner </h1>
+      <h3> Editing Banner </h3>
       <Banner handleSubmit={props.handleSubmit} handleChange={props.handleChange}/>
     </div>);
   }else if (type==="panel"){
   return (
     <div>
-    <h1> Editing Panel </h1>
+    <h3> Editing Panel </h3>
     <CustomForm handleImageChange={props.handleImageChange} handleSubmit={props.handleSubmit} handleChange={props.handleChange}
   />
   </div>);
