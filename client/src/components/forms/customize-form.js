@@ -13,89 +13,102 @@ return(
     <ul className="forms">
       <li>
         <label>
+
           Background Color:
 
-          <input className="placeholders" name="backgroundColor" onChange={handleChange}/>
         </label>
+        <input className="placeholders" name="backgroundColor" onChange={handleChange}/>
+
       </li>
       <li>
         <label>
           Width:
-          <input className="placeholders" name="width" onChange={handleChange}/>
         </label>
+        <input className="placeholders" name="width" onChange={handleChange}/>
+
       </li>
       <li>
         <label>
           Height:
-          <input className="placeholders" name="height" onChange={handleChange}/>
         </label>
+        <input className="placeholders" name="height" onChange={handleChange}/>
+
       </li>
       <li>
         <label>
           Border Width:
-          <input className="placeholders" name="borderWidth" onChange={handleChange}/>
         </label>
+        <input className="placeholders" name="borderWidth" onChange={handleChange}/>
+
       </li>
       <li>
         <label>
           Border Style:
-          <input className="placeholders" name="borderStyle" onChange={handleChange}/>
         </label>
+        <input className="placeholders" name="borderStyle" onChange={handleChange}/>
+
       </li>
       <li>
         <label>
           Border Color:
-          <input className="placeholders" name="borderColor" onChange={handleChange}/>
         </label>
+        <input className="placeholders" name="borderColor" onChange={handleChange}/>
+
       </li>
       <li>
         <label>
           Header:
-          <input className="placeholders" name="header" onChange={handleChange}/>
         </label>
+        <input className="placeholders" name="header" onChange={handleChange}/>
+
       </li>
       <li>
         <label>
           Item:
-          <input className="placeholders" name="item" onChange={handleChange}/>
         </label>
+        <input className="placeholders" name="item" onChange={handleChange}/>
+
       </li>
       <li>
         <label>
           Price:
-          <input className="placeholders" name="price" onChange={handleChange}/>
+
         </label>
+        <input className="placeholders" name="price" onChange={handleChange}/>
       </li>
       <li>
         <label>
           Description:
-          <input className="placeholders" name="description" onChange={handleChange}/>
+
         </label>
+          <input className="placeholders" name="description" onChange={handleChange}/>
       </li>
       <li>
         <label>
           Duration:
-          <input className="placeholders" name="duration" onChange={handleChange}/>
+
         </label>
+        <input className="placeholders" name="duration" onChange={handleChange}/>
       </li>
       <li>
         <label>
           Upload a picture:
 
 
-          <div className="previewComponent">
 
-              <input name="picture" className="fileInput"
-                type="file"
-                onChange={handleImageChange} />
-                {/* idk if the onsubmit accounts for this */}
-
-
-          </div>
       </label>
+      <div className="previewComponent">
+
+          <input name="picture" className="fileInput"
+            type="file"
+            onChange={handleImageChange} />
+            {/* idk if the onsubmit accounts for this */}
+
+
+      </div>
     </li>
 
-        <input type="submit" value="Submit" />
+        <input className="btn" type="submit" value="Submit" />
         </ul>
       </form>
 
