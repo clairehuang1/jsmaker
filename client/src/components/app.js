@@ -4,7 +4,9 @@ class App extends Component {
   render() {
     return (
       <div>
+      <div>
       <NavBar/>
+      </div>
       <div className="container">
         {this.props.children}
       </div>
