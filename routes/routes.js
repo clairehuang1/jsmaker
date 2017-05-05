@@ -64,6 +64,9 @@ router.get('/customer', function(req,res){
 //find the user, check to see if there is a package id
 
 router.post('/changeModal', function(req,res){
+  console.log("REQ USER", req.user);
+  console.log("REQ BODY", req.body);
+
   var packageid = "";
   var menuitem=""
   User.findById(req.user._id).exec()
@@ -71,31 +74,30 @@ router.post('/changeModal', function(req,res){
     if (user.packageid){
       return Package.findById(user.packageid).exec()
     }else{
-      var newPackage = new Package({});
+      var newPackage = new Package(req.body);
       return newPackage.save();
     }
   }).then(function(package){
-    console.log("asuh bitches")
 
-
-    package.clientId = req.user._id
-    package.menuitem=req.body.menuitem
-    package.color=req.body.color
-    package.price=req.body.price
-    package.backgroundColor=req.body.backgroundColor
-    console.log(req.body)
-    console.log(req.files)
+    console.log('package save was: ', package);
     // package.menupic.data=fs.readFileSync(req.body.menupic)
     // package.menupic.contentType='image/png'
     return package.save();
   })
+  .then(function(package) {
+    package.json = JSON.stringify(package);
+    User.findById(req.user, function(err, user) {
+      package.userId = user._id
+    })
+    return package.save();
+  })
   .then(function(package){
-    packageid = package._id;
-    menuitem=package.menuitem;
-
+    console.log('AFTER PROMISE', package);
+    // packageid = package._id;
+    // menuitem=package.menuitem;
     var jsFileStream;
 
-    if (package.type === "popup") {
+    if (package.selectedOption === "popup") {
 
       //Read in the right file for a pop-up widget
       jsFileStream = fs.readFileSync(__dirname + "/widgets/popup.js", 'utf8', (err, data) => {
@@ -106,9 +108,23 @@ router.post('/changeModal', function(req,res){
         }
       })
 
+      var template = handlebars.compile(jsFileStream);
+      //var data = JSON.stringify(package);
+      var data = {
+        "selectedOption": package.selectedOption,
+        "selectedTrigger": package.selectedTrigger,
+        "backgroundColor": package.backgroundColor,
+        "bodyTextColor": package.bodyTextColor,
+        "bodyText": package.bodyText,
+        "buttonText": package.buttonText,
+        "headerText": package.headerText
+
+      }
+      //console.log('data: ', data);
+      var result = template(data);
     }
 
-    else if (package.type === "banner") {
+    else if (package.selectedOption === "banner") {
       jsFileStream = fs.readFileSync(__dirname + "/widgets/banner.js", 'utf8', (err, data) => {
         if (err) {
           console.log("Error: ", err);
@@ -116,9 +132,19 @@ router.post('/changeModal', function(req,res){
           console.log("Successfully read in file.");
         }
       })
+      var template = handlebars.compile(jsFileStream);
+      //var data = JSON.stringify(package);
+      var data = {
+        "selectedOption": package.selectedOption,
+        "backgroundColor": package.backgroundColor,
+        "bodyTextColor": package.bodyTextColor,
+        "bodyText": package.bodyText
+      }
+      //console.log('data: ', data);
+      var result = template(data);
     }
 
-    else if (package.type === "panel") {
+    else if (package.selectedOption === "panel") {
       jsFileStream = fs.readFileSync(__dirname + "/widgets/panel.js", 'utf8', (err, data) => {
         if (err) {
           console.log("Error: ", err);
@@ -132,27 +158,26 @@ router.post('/changeModal', function(req,res){
       //we done fukked lol
     }
 
-    var codeIsLife = "console.log('hello there')";
 
-
-    var cssFileStream = fs.createReadStream(__dirname + '/modal.css');
-    cssFileStream.on('error', function(err) {
-      console.log('File error:', err);
-    })
+    // var cssFileStream = fs.createReadStream(__dirname + '/modal.css');
+    // cssFileStream.on('error', function(err) {
+    //   console.log('File error:', err);
+    // })
 
     //console.log('code is: ', codeIsLife);
     //console.log('js file stream is: ', jsFileStream);
     var source = "console.log('hello {{name}} i am watching you i hate this shit')";
-    var template = handlebars.compile(jsFileStream);
-    var data = {"name": "kevin",
-    "color": package.color,
-    "food": package.menuitem,
-    "price": package.price};
+    // var template = handlebars.compile(jsFileStream);
+    // var data = JSON.stringify(package);
+    // var data2 = {"selectedOption":"banner","backgroundColor":"#bcb5da","bodyTextColor":"#3a23ad","bodyText":"Testing"}
+    // //console.log('data: ', data);
+    // console.log('pck', package.json);
+    // var result = template(package.json);
+    //console.log('result is', result);
 
-    var result = template(data);
-    console.log('result is', result);
+    var customerKey = package.userId + ".js";
 
-    var s3Params = {Bucket: 'jsbuilder', Key: 'hoongs.js', Body:result};
+    var s3Params = {Bucket: 'jsbuilder', Key: customerKey, Body:result};
 
     s3.upload(s3Params, function(err, returnedData) {
       if (err) {
@@ -163,17 +188,14 @@ router.post('/changeModal', function(req,res){
       }
     });
 
-    s3.upload({Bucket: 'jsbuilder', Key: 'hoongsStyle.css', Body: cssFileStream}, function(err, returnedData) {
-      if (err) {
-        console.log("Error: ", err);
-      }
-      if (returnedData) {
-        console.log("CSS upload success: ", returnedData.Location);
-      }
-    });
-
-
-
+    // s3.upload({Bucket: 'jsbuilder', Key: 'hoongsStyle.css', Body: cssFileStream}, function(err, returnedData) {
+    //   if (err) {
+    //     console.log("Error: ", err);
+    //   }
+    //   if (returnedData) {
+    //     console.log("CSS upload success: ", returnedData.Location);
+    //   }
+    // });
 
     return User.findById(req.user._id).exec()
 
@@ -181,16 +203,12 @@ router.post('/changeModal', function(req,res){
     user.packageid=packageid;
     return user.save();
   }).then(function(user){
-
-    console.log(menuitem)
-    console.log(  "sfkhfsafhas MEEEE")
-    res.render("sample",{
-
-      menuitem: menuitem
-
+    console.log('FINAL USER: ', user);
+    res.status(200).json({
+      message: "Congrats, you updated your widget"
     })
   }).catch(function(err){
-    console.log(err)
+    console.log("Error", err)
   })
 })
 
@@ -213,7 +231,8 @@ router.get('/finished/:clientid', function(req,res){
     // res.status(200).json({
     //   clur : true
     //  })
-  }).catch(function(err){
+  })
+  .catch(function(err){
     console.log(err)
   })
 

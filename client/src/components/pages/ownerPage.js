@@ -14,15 +14,18 @@ class OwnerPage extends Component{
     this.state={
       displayBGColorPicker: false,
       displayTextColorPicker: false,
-      selectedOption: 'banner',
+      selectedOption: 'popup',
+      selectedTrigger:'',
       website:'',
       backgroundColor: '',
       bodyTextColor: '',
       headerTextColor: '',
-      borderColor: ''
+      borderColor: '',
+      bodyText: '',
     };
 
     this.handleOptionChange = this.handleOptionChange.bind(this)
+    this.handleTriggerChange = this.handleTriggerChange.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleImageChange = this.handleImageChange.bind(this);
@@ -62,6 +65,14 @@ class OwnerPage extends Component{
       selectedOption: e.target.value
     });
   }
+
+  handleTriggerChange(e) {
+    console.log('selected', e.target.value);
+    this.setState({
+      selectedTrigger: e.target.value
+    });
+  }
+
   onPreviewSubmit(event){
     console.log("PREVIEW");
   }
@@ -100,7 +111,7 @@ class OwnerPage extends Component{
       // key: the name of the object key
       // index: the ordinal position of the key within the object
       //console.log("OBJ: ", obj);
-      formData += (encodeURIComponent(currentState[key]) + "=${" + encodeURIComponent(currentState[key]) +"}&");
+      formData += (encodeURIComponent(key) + "=" + encodeURIComponent(currentState[key]) +"&");
 
     });
     console.log("FORM:", formData);
@@ -110,10 +121,9 @@ class OwnerPage extends Component{
     xhr.responseType='json';
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
-        console.log('success, 200');
         console.log(xhr.response.message);
       } else {
-        console.log('boohoo');
+        console.log('Error');
       }
     });
     xhr.send(formData);
@@ -224,13 +234,37 @@ class OwnerPage extends Component{
 
       <div className="field-container">
         <div>Text</div>
-        <div><input name="body" onChange={this.handleChange}/></div>
+        <div><input name="bodyText" onChange={this.handleChange}/></div>
       </div></div>) : null}
 
       {this.state.selectedOption === 'popup' ?
         (<div>
-          <div className="field-container">
-            Choose your trigger button
+          <div className="column">
+            Configure trigger button
+            <div className="field-container">
+
+              <div>
+                <label className="selector">
+                  <input type="radio" value="circle" onChange={this.handleTriggerChange} checked={this.state.selectedTrigger === 'circle'}/>
+                  Circle
+                </label>
+              </div>
+
+              <div>
+                <label className="selector">
+                  <input type="radio" value="square" onChange={this.handleTriggerChange} checked={this.state.selectedTrigger === 'square'}/>
+                  Square
+                </label>
+              </div>
+
+              <div>
+                <label className="selector">
+                  <input type="radio" value="poly" onChange={this.handleTriggerChange} checked={this.state.selectedTrigger === 'poly'}/>
+                  Polygon
+                </label>
+              </div>
+
+            </div>
           </div>
           <div className="field-container">
             <div>Background Color</div>
@@ -261,11 +295,37 @@ class OwnerPage extends Component{
 
       <div className="field-container">
         <div>Text</div>
-        <div><input name="body" onChange={this.handleChange}/></div>
-      </div></div>) : null}
+        <div><input name="buttonText" onChange={this.handleChange}/></div>
+      </div>
+
+      <div>Configure the pop-up modal</div>
+      <div className="field-container">
+        <div>Header</div>
+        <div><input name="headerText" onChange={this.handleChange}/></div>
+      </div>
+
+      <div className="field-container">
+        <div>Secondary Header</div>
+        <div><input name="bodyText" onChange={this.handleChange}/></div>
+      </div>
+
+      <div className="field-container">
+        <div>Body</div>
+        <div><input name="descriptionText" onChange={this.handleChange}/></div>
+      </div>
+
+      <div className="field-container">
+        <div>Image</div>
+        <div><input name="bodyImage" onChange={this.handleChange}/></div>
+      </div>
+
+
+        </div>) : null}
+
+
 
     </div>
-    <button type="submit">Press</button>
+    <button type="submit">Update your modal</button>
   </form>
   <div className="preview-container">
     <Preview website={this.state.website} onPreviewSubmit={this.onPreviewSubmit} previewComponent={this.state.selectedOption}/>

@@ -8,11 +8,14 @@ var userSchema = mongoose.Schema({
 });
 
 var package = mongoose.Schema({
-  menuitem: String,
-  color: String,
-  clientId:String,
-  price: String,
+  selectedOption: String,
   backgroundColor: String,
+  bodyTextColor: String,
+  bodyText: String,
+  json: Object,
+  selectedTrigger: String,
+  headerText: String,
+  buttonText: String,
   menupic: { data: Buffer, contentType: String }
 })
 

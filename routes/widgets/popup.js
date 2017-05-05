@@ -55,11 +55,9 @@ window.portInterval = window.setTimeout(function(){
     top: 20px;
     left: 0px;
     color: #fff;
-    background-color: #292929;
-    width: 150px;
-    height: 100px;
-    border: 0px solid #fff;
-    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0 100%);
+    background-color: {{backgroundColor}};
+    color: {{bodyTextColor}}
+    border: 2px solid {{borderColor}};
   }
   .modal {
       display: none; /* Hidden by default */
@@ -81,7 +79,7 @@ window.portInterval = window.setTimeout(function(){
       margin: auto;
       padding: 20px;
       border: 1px solid #888;
-      width: 80%;
+      width: 60%;
       color: #000;
       text-align:center;
   }
@@ -105,24 +103,37 @@ window.portInterval = window.setTimeout(function(){
     height: 300px;
   }
 
+  .circle {
+  	width: 100px;
+  	height: 100px;
+  	background: red;
+  	-moz-border-radius: 50px;
+  	-webkit-border-radius: 50px;
+  	border-radius: 50px;
+  }
+
+  .square {
+  	width: 100px;
+  	height: 100px;
+  	background: red;
+  }
+
   .poly {
-    background-color:green;
-    color: pink;
-    width: 400px;
-    height: 200px;
+    width: 150px;
+    height: 100px;
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0 100%);
   }
   </style>`;
 
-  var button = $("<button id='myBtn'><p>Click for daily specials</p></button>")
+  var button = $("<button class='{{selectedTrigger}}' id='myBtn'><p>{{buttonText}}</p></button>")
   var modal = $(`<div id='myModal' class='modal'>
   <div class='modal-content'>
   <span id='close-modal' class='close'>X</span>
-  <h1>Today's specials</h1>
+  <h1>{{headerText}}</h1>
   <div class="content-container">
   <div class="description-container">
-    <div><h2>Chikin chikin</h2></div>
-    <div><h3>Free for $15!</h3></div>
+    <div><h2>{{bodyText}}</h2></div>
+    <div><h3>{{descriptionText}}</h3></div>
   </div>
   <div><img class="special-img" src="/images/special.jpg"</div>
   </div>

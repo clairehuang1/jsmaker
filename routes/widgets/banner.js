@@ -30,15 +30,6 @@ if (paramGetter("tester") === "yes") {
 window.portInterval = window.setTimeout(function(){
 
   var style =`<style>
-  h2 {
-    color: #000;
-    font-size: 36px;
-  }
-
-  h3 {
-    color: #000;
-    font-size: 18px;
-  }
 
   .close {
       color: #aaaaaa;
@@ -59,12 +50,15 @@ window.portInterval = window.setTimeout(function(){
     z-index: 1;
     width: 100%;
     top: 0px;
-    background-color: #fff;
-    padding: 10px;
+    height: 22px;
+    color: {{bodyTextColor}};
+    background-color: {{backgroundColor}};
+    padding: 3px;
   }
 
   .banner-content-container {
     display: flex;
+    hei
     flex-direction: row;
     justify-content: space-around;
   }
@@ -74,9 +68,7 @@ window.portInterval = window.setTimeout(function(){
   var modal = $(`<div id="banner" class="banner-container">
   <span id='close-modal' class='close'>X</span>
     <div class="banner-content-container">
-    <div><h1>Today's Specials</h1></div>
-    <div><h2>chikin</h2></div>
-    <div><h3>fitty dowler velly cheap</h3></div>
+    <div><p>{{bodyText}}</p></div>
     </div>
   </div>`)
 

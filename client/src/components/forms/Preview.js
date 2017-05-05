@@ -6,7 +6,6 @@ import PopupWidget from './PopupWidget.js'
 const Preview =({
   onPreviewSubmit, previewComponent, website
 })=>{
-  console.log(website);
   return(
     <div className="preview-box">
 

@@ -59,7 +59,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "eb9a70d2646e82cc4ce2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c23bf7ba68de8c477bf7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -11307,7 +11307,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Popup = function Popup(_ref) {
   var handleSubmit = _ref.handleSubmit,
-      handleChange = _ref.handleChange;
+      handleChange = _ref.handleChange,
+      handleImageChange = _ref.handleImageChange;
 
   return _react2.default.createElement(
     "form",
@@ -11321,25 +11322,25 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Type:",
+          "Type:"
+        ),
+        _react2.default.createElement(
+          "select",
+          { className: "placeholders", name: "type", onChange: handleChange },
           _react2.default.createElement(
-            "select",
-            { className: "placeholders", name: "type", onChange: handleChange },
-            _react2.default.createElement(
-              "option",
-              { value: "popup" },
-              " Popup "
-            ),
-            _react2.default.createElement(
-              "option",
-              { value: "banner" },
-              " Banner "
-            ),
-            _react2.default.createElement(
-              "option",
-              { value: "panel" },
-              " Panel "
-            )
+            "option",
+            { value: "popup" },
+            " Popup "
+          ),
+          _react2.default.createElement(
+            "option",
+            { value: "banner" },
+            " Banner "
+          ),
+          _react2.default.createElement(
+            "option",
+            { value: "panel" },
+            " Panel "
           )
         )
       ),
@@ -11349,9 +11350,9 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Background Color:",
-          _react2.default.createElement("input", { className: "placeholders", name: "backgroundColor", onChange: handleChange })
-        )
+          "Background Color:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "backgroundColor", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11359,9 +11360,9 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Width:",
-          _react2.default.createElement("input", { className: "placeholders", name: "width", onChange: handleChange })
-        )
+          "Width:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "width", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11369,9 +11370,9 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Height:",
-          _react2.default.createElement("input", { className: "placeholders", name: "height", onChange: handleChange })
-        )
+          "Height:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "height", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11379,9 +11380,9 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Border Width:",
-          _react2.default.createElement("input", { className: "placeholders", name: "borderWidth", onChange: handleChange })
-        )
+          "Border Width:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "borderWidth", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11389,9 +11390,9 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Border Style:",
-          _react2.default.createElement("input", { className: "placeholders", name: "borderStyle", onChange: handleChange })
-        )
+          "Border Style:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "borderStyle", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11399,9 +11400,9 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Border Color:",
-          _react2.default.createElement("input", { className: "placeholders", name: "borderColor", onChange: handleChange })
-        )
+          "Border Color:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "borderColor", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11409,9 +11410,9 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Header:",
-          _react2.default.createElement("input", { className: "placeholders", name: "header", onChange: handleChange })
-        )
+          "Header:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "header", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11419,9 +11420,9 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Item:",
-          _react2.default.createElement("input", { className: "placeholders", name: "item", onChange: handleChange })
-        )
+          "Item:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "item", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11429,9 +11430,9 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Price:",
-          _react2.default.createElement("input", { className: "placeholders", name: "price", onChange: handleChange })
-        )
+          "Price:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "price", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11439,11 +11440,37 @@ var Popup = function Popup(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Description:",
-          _react2.default.createElement("input", { className: "placeholders", name: "description", onChange: handleChange })
+          "Description:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "description", onChange: handleChange })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Duration:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "duration", onChange: handleChange })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Upload a picture:"
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "previewComponent" },
+          _react2.default.createElement("input", { name: "picture", className: "fileInput",
+            type: "file",
+            onChange: handleImageChange })
         )
       ),
-      _react2.default.createElement("input", { type: "submit", value: "Submit" })
+      _react2.default.createElement("input", { className: "btn", type: "submit", value: "Submit" })
     )
   );
 };
@@ -11486,27 +11513,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Type:",
-          _react2.default.createElement(
-            "select",
-            { className: "placeholders", name: "type", onChange: handleChange },
-            _react2.default.createElement(
-              "option",
-              { value: "popup" },
-              " Popup "
-            ),
-            _react2.default.createElement(
-              "option",
-              { value: "banner" },
-              " Banner "
-            ),
-            _react2.default.createElement(
-              "option",
-              { value: "panel" },
-              " Panel "
-            )
-          )
-        )
+          "Background Color:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "backgroundColor", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11514,9 +11523,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Background Color:",
-          _react2.default.createElement("input", { className: "placeholders", name: "backgroundColor", onChange: handleChange })
-        )
+          "Width:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "width", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11524,9 +11533,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Width:",
-          _react2.default.createElement("input", { className: "placeholders", name: "width", onChange: handleChange })
-        )
+          "Height:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "height", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11534,9 +11543,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Height:",
-          _react2.default.createElement("input", { className: "placeholders", name: "height", onChange: handleChange })
-        )
+          "Border Width:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "borderWidth", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11544,9 +11553,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Border Width:",
-          _react2.default.createElement("input", { className: "placeholders", name: "borderWidth", onChange: handleChange })
-        )
+          "Border Style:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "borderStyle", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11554,9 +11563,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Border Style:",
-          _react2.default.createElement("input", { className: "placeholders", name: "borderStyle", onChange: handleChange })
-        )
+          "Border Color:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "borderColor", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11564,9 +11573,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Border Color:",
-          _react2.default.createElement("input", { className: "placeholders", name: "borderColor", onChange: handleChange })
-        )
+          "Header:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "header", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11574,9 +11583,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Header:",
-          _react2.default.createElement("input", { className: "placeholders", name: "header", onChange: handleChange })
-        )
+          "Item:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "item", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11584,9 +11593,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Item:",
-          _react2.default.createElement("input", { className: "placeholders", name: "item", onChange: handleChange })
-        )
+          "Price:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "price", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11594,9 +11603,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Price:",
-          _react2.default.createElement("input", { className: "placeholders", name: "price", onChange: handleChange })
-        )
+          "Description:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "description", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11604,9 +11613,9 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Description:",
-          _react2.default.createElement("input", { className: "placeholders", name: "description", onChange: handleChange })
-        )
+          "Duration:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "duration", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -11614,27 +11623,17 @@ var CustomForm = function CustomForm(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Duration:",
-          _react2.default.createElement("input", { className: "placeholders", name: "duration", onChange: handleChange })
-        )
-      ),
-      _react2.default.createElement(
-        "li",
-        null,
+          "Upload a picture:"
+        ),
         _react2.default.createElement(
-          "label",
-          null,
-          "Upload a picture:",
-          _react2.default.createElement(
-            "div",
-            { className: "previewComponent" },
-            _react2.default.createElement("input", { name: "picture", className: "fileInput",
-              type: "file",
-              onChange: handleImageChange })
-          )
+          "div",
+          { className: "previewComponent" },
+          _react2.default.createElement("input", { name: "picture", className: "fileInput",
+            type: "file",
+            onChange: handleImageChange })
         )
       ),
-      _react2.default.createElement("input", { type: "submit", value: "Submit" })
+      _react2.default.createElement("input", { className: "btn", type: "submit", value: "Submit" })
     )
   );
 };
@@ -17706,7 +17705,11 @@ var App = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_NavBar2.default, null),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_NavBar2.default, null)
+        ),
         _react2.default.createElement(
           'div',
           { className: 'container' },
@@ -17740,7 +17743,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Banner = function Banner(_ref) {
   var handleSubmit = _ref.handleSubmit,
-      handleChange = _ref.handleChange;
+      handleChange = _ref.handleChange,
+      handleImageChange = _ref.handleImageChange;
 
   return _react2.default.createElement(
     "form",
@@ -17754,25 +17758,25 @@ var Banner = function Banner(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Type:",
+          "Type:"
+        ),
+        _react2.default.createElement(
+          "select",
+          { className: "placeholders", name: "type", onChange: handleChange },
           _react2.default.createElement(
-            "select",
-            { className: "placeholders", name: "type", onChange: handleChange },
-            _react2.default.createElement(
-              "option",
-              { value: "popup" },
-              " Popup "
-            ),
-            _react2.default.createElement(
-              "option",
-              { value: "banner" },
-              " Banner "
-            ),
-            _react2.default.createElement(
-              "option",
-              { value: "panel" },
-              " Panel "
-            )
+            "option",
+            { value: "popup" },
+            " Popup "
+          ),
+          _react2.default.createElement(
+            "option",
+            { value: "banner" },
+            " Banner "
+          ),
+          _react2.default.createElement(
+            "option",
+            { value: "panel" },
+            " Panel "
           )
         )
       ),
@@ -17782,9 +17786,9 @@ var Banner = function Banner(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Background Color:",
-          _react2.default.createElement("input", { className: "placeholders", name: "backgroundColor", onChange: handleChange })
-        )
+          "Background Color:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "backgroundColor", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -17792,9 +17796,9 @@ var Banner = function Banner(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Width:",
-          _react2.default.createElement("input", { className: "placeholders", name: "width", onChange: handleChange })
-        )
+          "Width:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "width", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -17802,9 +17806,9 @@ var Banner = function Banner(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Height:",
-          _react2.default.createElement("input", { className: "placeholders", name: "height", onChange: handleChange })
-        )
+          "Height:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "height", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -17812,9 +17816,9 @@ var Banner = function Banner(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Header:",
-          _react2.default.createElement("input", { className: "placeholders", name: "header", onChange: handleChange })
-        )
+          "Border Width:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "borderWidth", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -17822,9 +17826,9 @@ var Banner = function Banner(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Item:",
-          _react2.default.createElement("input", { className: "placeholders", name: "item", onChange: handleChange })
-        )
+          "Border Style:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "borderStyle", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -17832,9 +17836,9 @@ var Banner = function Banner(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Price:",
-          _react2.default.createElement("input", { className: "placeholders", name: "price", onChange: handleChange })
-        )
+          "Border Color:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "borderColor", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -17842,9 +17846,9 @@ var Banner = function Banner(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Description:",
-          _react2.default.createElement("input", { className: "placeholders", name: "description", onChange: handleChange })
-        )
+          "Header:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "header", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -17852,9 +17856,9 @@ var Banner = function Banner(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Duration:",
-          _react2.default.createElement("input", { className: "placeholders", name: "duration", onChange: handleChange })
-        )
+          "Item:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "item", onChange: handleChange })
       ),
       _react2.default.createElement(
         "li",
@@ -17862,11 +17866,47 @@ var Banner = function Banner(_ref) {
         _react2.default.createElement(
           "label",
           null,
-          "Upload a picture:",
-          _react2.default.createElement("input", { className: "placeholders", name: "picture", onChange: handleChange })
+          "Price:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "price", onChange: handleChange })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Description:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "description", onChange: handleChange })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Duration:"
+        ),
+        _react2.default.createElement("input", { className: "placeholders", name: "duration", onChange: handleChange })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Upload a picture:"
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "previewComponent" },
+          _react2.default.createElement("input", { name: "picture", className: "fileInput",
+            type: "file",
+            onChange: handleImageChange })
         )
       ),
-      _react2.default.createElement("input", { type: "submit", value: "Submit" })
+      _react2.default.createElement("input", { className: "btn", type: "submit", value: "Submit" })
     )
   );
 };
@@ -17903,40 +17943,35 @@ var _customizeForm2 = _interopRequireDefault(_customizeForm);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function GeneralForm(props) {
-  console.log(props.type);
-  console.log('above');
   var type = props.type;
   if (type === "popup") {
-    console.log("suh1");
     return _react2.default.createElement(
       'div',
       null,
       _react2.default.createElement(
-        'h1',
+        'h3',
         null,
         ' Editing Popup '
       ),
       _react2.default.createElement(_Popup2.default, { handleSubmit: props.handleSubmit, handleChange: props.handleChange })
     );
   } else if (type === "banner") {
-    console.log("suh2");
     return _react2.default.createElement(
       'div',
       null,
       _react2.default.createElement(
-        'h1',
+        'h3',
         null,
         ' Editing Banner '
       ),
       _react2.default.createElement(_Banner2.default, { handleSubmit: props.handleSubmit, handleChange: props.handleChange })
     );
   } else if (type === "panel") {
-    console.log("suh3");
     return _react2.default.createElement(
       'div',
       null,
       _react2.default.createElement(
-        'h1',
+        'h3',
         null,
         ' Editing Panel '
       ),
@@ -17946,11 +17981,6 @@ function GeneralForm(props) {
   } else return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      null,
-      ' Pick a type '
-    ),
     _react2.default.createElement(_customizeForm2.default, { handleImageChange: props.handleImageChange, handleSubmit: props.handleSubmit, handleChange: props.handleChange })
   );
 }
@@ -18089,24 +18119,49 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _BannerWidget = __webpack_require__(343);
+
+var _BannerWidget2 = _interopRequireDefault(_BannerWidget);
+
+var _PanelWidget = __webpack_require__(344);
+
+var _PanelWidget2 = _interopRequireDefault(_PanelWidget);
+
+var _PopupWidget = __webpack_require__(345);
+
+var _PopupWidget2 = _interopRequireDefault(_PopupWidget);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Preview = function Preview(_ref) {
-  var onPreviewSubmit = _ref.onPreviewSubmit;
+  var onPreviewSubmit = _ref.onPreviewSubmit,
+      previewComponent = _ref.previewComponent,
+      website = _ref.website;
 
-
+  console.log(website);
   return _react2.default.createElement(
-    "div",
-    null,
-    _react2.default.createElement(
-      "button",
-      { onSubmit: onPreviewSubmit, type: "submit" },
-      " Click for a preview "
+    'div',
+    { className: 'preview-box' },
+    _react2.default.createElement('iframe', { src: website }),
+    previewComponent === "popup" ? _react2.default.createElement(_PopupWidget2.default, null) : _react2.default.createElement(
+      'div',
+      null,
+      '1'
+    ),
+    previewComponent === "panel" ? _react2.default.createElement(_PanelWidget2.default, null) : _react2.default.createElement(
+      'div',
+      null,
+      '2'
+    ),
+    previewComponent === "banner" ? _react2.default.createElement(_BannerWidget2.default, null) : _react2.default.createElement(
+      'div',
+      null,
+      '2'
     ),
     _react2.default.createElement(
-      "div",
-      { id: "preview" },
-      "Preview"
+      'button',
+      { onSubmit: onPreviewSubmit, type: 'submit' },
+      ' Click for a preview '
     )
   );
 };
@@ -18130,6 +18185,8 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouter = __webpack_require__(82);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18141,10 +18198,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var HomePage = function (_Component) {
   _inherits(HomePage, _Component);
 
-  function HomePage() {
+  function HomePage(props, context) {
     _classCallCheck(this, HomePage);
 
-    return _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this, props, context));
   }
 
   _createClass(HomePage, [{
@@ -18152,14 +18209,35 @@ var HomePage = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
-        'Hello world! This is the home page route.'
+        { className: 'title-header' },
+        _react2.default.createElement(
+          'button',
+          { className: 'home-btn' },
+          _react2.default.createElement(
+            'a',
+            { href: 'login' },
+            'Login'
+          )
+        ),
+        _react2.default.createElement(
+          'button',
+          { className: 'home-btn' },
+          _react2.default.createElement(
+            'a',
+            { href: 'signup' },
+            'Sign up'
+          )
+        )
       );
     }
   }]);
 
   return HomePage;
 }(_react.Component);
+
+HomePage.contextTypes = {
+  router: _react.PropTypes.object.isRequired
+};
 
 exports.default = HomePage;
 
@@ -18241,6 +18319,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = __webpack_require__(82);
 
+var _reactColor = __webpack_require__(564);
+
 var _customizeForm = __webpack_require__(90);
 
 var _customizeForm2 = _interopRequireDefault(_customizeForm);
@@ -18261,6 +18341,10 @@ var _Preview = __webpack_require__(160);
 
 var _Preview2 = _interopRequireDefault(_Preview);
 
+var _WidgetSelector = __webpack_require__(346);
+
+var _WidgetSelector2 = _interopRequireDefault(_WidgetSelector);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -18280,39 +18364,61 @@ var OwnerPage = function (_Component) {
     var _this = _possibleConstructorReturn(this, (OwnerPage.__proto__ || Object.getPrototypeOf(OwnerPage)).call(this, props));
 
     _this.state = {
-      type: '',
+      displayBGColorPicker: false,
+      displayTextColorPicker: false,
+      selectedOption: 'banner',
+      website: '',
       backgroundColor: '',
-      textColor: '',
-      width: '',
-      height: '',
-      borderWidth: '',
-      borderStyle: '',
-      borderColor: '',
-      header: '',
-      item: '',
-      price: '',
-      description: '',
-      duration: '',
-      file: '',
-      imagePreviewUrl: '',
-      previewComponent: ''
+      bodyTextColor: '',
+      headerTextColor: '',
+      borderColor: ''
     };
+
+    _this.handleOptionChange = _this.handleOptionChange.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleImageChange = _this.handleImageChange.bind(_this);
     _this.onPreviewSubmit = _this.onPreviewSubmit.bind(_this);
+    _this.handleBGColorClick = _this.handleBGColorClick.bind(_this);
+    _this.handleBGColorClose = _this.handleBGColorClose.bind(_this);
+    _this.handleTextColorClick = _this.handleTextColorClick.bind(_this);
+    _this.handleTextColorClose = _this.handleTextColorClose.bind(_this);
+    _this.setBGColor = _this.setBGColor.bind(_this);
+    _this.setTextColor = _this.setTextColor.bind(_this);
+
     return _this;
   }
 
   _createClass(OwnerPage, [{
+    key: 'setBGColor',
+    value: function setBGColor(e) {
+      console.log("setting bg color", e);
+      this.setState({
+        backgroundColor: e.hex
+      });
+    }
+  }, {
+    key: 'setTextColor',
+    value: function setTextColor(e) {
+      console.log("setting text", e);
+      this.setState({
+        bodyTextColor: e.hex
+      });
+    }
+  }, {
     key: 'handleChange',
     value: function handleChange(event) {
-      var target = event.target;
-      var value = target.value;
-      var name = target.name;
-      console.log(name);
-      console.log("this da value" + value);
+      var value = event.target.value;
+      var name = event.target.name;
       this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: 'handleOptionChange',
+    value: function handleOptionChange(e) {
+      console.log('selected', e.target.value);
+      this.setState({
+        selectedOption: e.target.value
+      });
     }
   }, {
     key: 'onPreviewSubmit',
@@ -18349,30 +18455,59 @@ var OwnerPage = function (_Component) {
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
-      console.log('hgffcvgfcgjfcgfh');
-      alert('hallo ' + this.state.name);
-      console.log(this.state);
       event.preventDefault();
-      this.setState({ previewComponent: previewComponent });
-      //  const xhr = new XMLHttpRequest();
-      //  xhr.open('post', '/changeModal');
-      //  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      //  xhr.responseType='json';
-      //  xhr.addEventListener('load', () => {
-      //     if (xhr.status === 200) {
-      //       console.log(xhr.response.message);
-      //     } else {
-      //       console.log('boohoo');
-      //     }
-      //   });
-      //   xhr.send();
+      console.log("****STATE****", this.state);
+      var formData = '';
+      var currentState = this.state;
+      Object.keys(currentState).forEach(function (key, i) {
+        // key: the name of the object key
+        // index: the ordinal position of the key within the object
+        //console.log("OBJ: ", obj);
+        formData += encodeURIComponent(currentState[key]) + "=" + encodeURIComponent(currentState[key]) + "&";
+      });
+      console.log("FORM:", formData);
+      var xhr = new XMLHttpRequest();
+      xhr.open('post', '/changeModal');
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhr.responseType = 'json';
+      xhr.addEventListener('load', function () {
+        if (xhr.status === 200) {
+          console.log('success, 200');
+          console.log("type:", xhr.response.type);
+          console.log(xhr.response.message);
+        } else {
+          console.log('boohoo');
+        }
+      });
+      xhr.send(formData);
+    }
+  }, {
+    key: 'handleBGColorClick',
+    value: function handleBGColorClick(e) {
+      console.log('handle click bg', e);
+      this.setState({
+        displayBGColorPicker: !this.state.displayBGColorPicker });
+    }
+  }, {
+    key: 'handleBGColorClose',
+    value: function handleBGColorClose(e) {
+      this.setState({
+        displayBGColorPicker: false });
+    }
+  }, {
+    key: 'handleTextColorClick',
+    value: function handleTextColorClick() {
+      console.log('gottem text');
+      this.setState({ displayTextColorPicker: !this.state.displayTextColorPicker });
+    }
+  }, {
+    key: 'handleTextColorClose',
+    value: function handleTextColorClose() {
+      this.setState({ displayTextColorPicker: false });
     }
   }, {
     key: 'render',
     value: function render() {
-      console.log("sup");
-
-      console.log(this.state.type);
       var imagePreviewUrl = this.state.imagePreviewUrl;
 
       var $imagePreview = null;
@@ -18385,26 +18520,259 @@ var OwnerPage = function (_Component) {
           'Please select an Image for Preview'
         );
       }
-      console.log($imagePreview);
+
+      var popover = {
+        position: 'absolute',
+        zIndex: '2'
+      };
+      var cover = {
+        position: 'fixed',
+        top: '0px',
+        right: '0px',
+        bottom: '0px',
+        left: '0px'
+      };
 
       return _react2.default.createElement(
         'div',
-        { id: 'organizeOwner' },
+        { className: 'widget-container' },
         _react2.default.createElement(
-          'div',
-          { id: 'miniOwner' },
-          _react2.default.createElement(_GeneralForm2.default, { type: this.state.type, backgroundColor: this.state.backgroundColor,
-            textColor: this.state.textColor, width: this.state.width, height: this.state.height,
-            borderWidth: this.state.borderWidth, borderStyle: this.state.borderStyle,
-            borderColor: this.state.borderColor, header: this.state.header, item: this.state.item,
-            price: this.state.price, description: this.state.description, duration: this.state.duration,
-            handleSubmit: this.handleSubmit, imagePreview: $imagePreview, handleImageChange: this.handleImageChange,
-            handleImageSubmit: this.handleImageSubmit, handleChange: this.handleChange })
+          'h2',
+          null,
+          'Customize your widget:'
         ),
         _react2.default.createElement(
           'div',
-          null,
-          _react2.default.createElement(_Preview2.default, { onPreviewSubmit: this.onPreviewSubmit, previewComponent: this.state.previewComponent })
+          { className: 'content-container' },
+          _react2.default.createElement(
+            'form',
+            { onSubmit: this.handleSubmit },
+            _react2.default.createElement(
+              'div',
+              { className: 'form-container' },
+              _react2.default.createElement(
+                'div',
+                { className: 'field-container' },
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  'Your website'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement('input', { name: 'website', onChange: this.handleChange })
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'column' },
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  'Widget type'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field-container' },
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'selector' },
+                      _react2.default.createElement('input', { type: 'radio', value: 'banner', onChange: this.handleOptionChange, checked: this.state.selectedOption === 'banner' }),
+                      'Banner'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'selector' },
+                      _react2.default.createElement('input', { type: 'radio', value: 'panel', onChange: this.handleOptionChange, checked: this.state.selectedOption === 'panel' }),
+                      'Panel'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'selector' },
+                      _react2.default.createElement('input', { type: 'radio', value: 'popup', onChange: this.handleOptionChange, checked: this.state.selectedOption === 'popup' }),
+                      'Popup'
+                    )
+                  )
+                )
+              ),
+              this.state.selectedOption === 'banner' ? _react2.default.createElement(
+                'div',
+                null,
+                ' ',
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field-container' },
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    'Background Color'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _react2.default.createElement(
+                        'button',
+                        { type: 'button', onClick: this.handleBGColorClick },
+                        'Pick Color'
+                      ),
+                      this.state.displayBGColorPicker ? _react2.default.createElement(
+                        'div',
+                        { style: popover },
+                        _react2.default.createElement('div', { style: cover, onClick: this.handleBGColorClose }),
+                        _react2.default.createElement(_reactColor.ChromePicker, { name: 'bgColorr', onChange: this.setBGColor })
+                      ) : null
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field-container' },
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    'Text Color'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _react2.default.createElement(
+                        'button',
+                        { type: 'button', onClick: this.handleTextColorClick },
+                        'Pick Color'
+                      ),
+                      this.state.displayTextColorPicker ? _react2.default.createElement(
+                        'div',
+                        { style: popover },
+                        _react2.default.createElement('div', { style: cover, onClick: this.handleTextColorClose }),
+                        _react2.default.createElement(_reactColor.ChromePicker, { name: 'bgColorr', onChange: this.setTextColor })
+                      ) : null
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field-container' },
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    'Text'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement('input', { name: 'body', onChange: this.handleChange })
+                  )
+                )
+              ) : null,
+              this.state.selectedOption === 'popup' ? _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field-container' },
+                  'Choose your trigger button'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field-container' },
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    'Background Color'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _react2.default.createElement(
+                        'button',
+                        { type: 'button', onClick: this.handleBGColorClick },
+                        'Pick Color'
+                      ),
+                      this.state.displayBGColorPicker ? _react2.default.createElement(
+                        'div',
+                        { style: popover },
+                        _react2.default.createElement('div', { style: cover, onClick: this.handleBGColorClose }),
+                        _react2.default.createElement(_reactColor.ChromePicker, { onChange: this.setBGColor })
+                      ) : null
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field-container' },
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    'Text Color'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _react2.default.createElement(
+                        'button',
+                        { type: 'button', onClick: this.handleTextColorClick },
+                        'Pick Color'
+                      ),
+                      this.state.displayTextColorPicker ? _react2.default.createElement(
+                        'div',
+                        { style: popover },
+                        _react2.default.createElement('div', { style: cover, onClick: this.handleTextColorClose }),
+                        _react2.default.createElement(_reactColor.ChromePicker, { onChange: this.setTextColor })
+                      ) : null
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field-container' },
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    'Text'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement('input', { name: 'body', onChange: this.handleChange })
+                  )
+                )
+              ) : null
+            ),
+            _react2.default.createElement(
+              'button',
+              { type: 'submit' },
+              'Press'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'preview-container' },
+            _react2.default.createElement(_Preview2.default, { website: this.state.website, onPreviewSubmit: this.onPreviewSubmit, previewComponent: this.state.selectedOption })
+          )
         )
       );
     }
@@ -18412,6 +18780,37 @@ var OwnerPage = function (_Component) {
 
   return OwnerPage;
 }(_react.Component);
+
+// <div id="organizeOwner">
+//   <div id="miniOwner">
+//     <div>
+//       <form>
+//         <label className="selector">
+//           <input type="radio" value="banner" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'banner'}/>
+//           Banner
+//         </label>
+// <label className="selector">
+//   <input type="radio" value="panel" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'panel'}/>
+//   Panel
+// </label>
+// <label className="selector">
+//   <input type="radio" value="popup" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'popup'}/>
+//   Popup
+// </label>
+//       </form>
+//     </div>
+//     <GeneralForm backgroundColor={this.state.backgroundColor}
+//       textColor={this.state.textColor} width={this.state.width} height={this.state.height}
+//       borderWidth={this.state.borderWidth} borderStyle={this.state.borderStyle}
+//       borderColor={this.state.borderColor} header={this.state.header} item={this.state.item}
+//       price={this.state.price} description={this.state.description} duration={this.state.duration}
+//       handleSubmit={this.handleSubmit} imagePreview={$imagePreview} handleImageChange= {this.handleImageChange}
+//       handleImageSubmit={this.handleImageSubmit} handleChange={this.handleChange}/>
+//   </div>
+//   <div>
+//     <Preview onPreviewSubmit={this.onPreviewSubmit} previewComponent={this.state.selectedOption}/>
+//   </div>
+// </div>
 
 exports.default = OwnerPage;
 
@@ -36832,1805 +37231,4 @@ defineProperties(FunctionPrototype, {
                 // When the [[Call]] internal method of a function object, F,
                 // which was created using the bind function is called with a
                 // this value and a list of arguments ExtraArgs, the following
-                // steps are taken:
-                // 1. Let boundArgs be the value of F's [[BoundArgs]] internal
-                //   property.
-                // 2. Let boundThis be the value of F's [[BoundThis]] internal
-                //   property.
-                // 3. Let target be the value of F's [[TargetFunction]] internal
-                //   property.
-                // 4. Let args be a new list containing the same values as the
-                //   list boundArgs in the same order followed by the same
-                //   values as the list ExtraArgs in the same order.
-                // 5. Return the result of calling the [[Call]] internal method
-                //   of target providing boundThis as the this value and
-                //   providing args as the arguments.
-
-                // equiv: target.call(this, ...boundArgs, ...args)
-                return target.apply(
-                    that,
-                    args.concat(array_slice.call(arguments))
-                );
-
-            }
-
-        };
-
-        // 15. If the [[Class]] internal property of Target is "Function", then
-        //     a. Let L be the length property of Target minus the length of A.
-        //     b. Set the length own property of F to either 0 or L, whichever is
-        //       larger.
-        // 16. Else set the length own property of F to 0.
-
-        var boundLength = Math.max(0, target.length - args.length);
-
-        // 17. Set the attributes of the length own property of F to the values
-        //   specified in 15.3.5.1.
-        var boundArgs = [];
-        for (var i = 0; i < boundLength; i++) {
-            boundArgs.push('$' + i);
-        }
-
-        // XXX Build a dynamic function with desired amount of arguments is the only
-        // way to set the length property of a function.
-        // In environments where Content Security Policies enabled (Chrome extensions,
-        // for ex.) all use of eval or Function costructor throws an exception.
-        // However in all of these environments Function.prototype.bind exists
-        // and so this code will never be executed.
-        var bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this, arguments); }')(binder);
-
-        if (target.prototype) {
-            Empty.prototype = target.prototype;
-            bound.prototype = new Empty();
-            // Clean up dangling references.
-            Empty.prototype = null;
-        }
-
-        // TODO
-        // 18. Set the [[Extensible]] internal property of F to true.
-
-        // TODO
-        // 19. Let thrower be the [[ThrowTypeError]] function Object (13.2.3).
-        // 20. Call the [[DefineOwnProperty]] internal method of F with
-        //   arguments "caller", PropertyDescriptor {[[Get]]: thrower, [[Set]]:
-        //   thrower, [[Enumerable]]: false, [[Configurable]]: false}, and
-        //   false.
-        // 21. Call the [[DefineOwnProperty]] internal method of F with
-        //   arguments "arguments", PropertyDescriptor {[[Get]]: thrower,
-        //   [[Set]]: thrower, [[Enumerable]]: false, [[Configurable]]: false},
-        //   and false.
-
-        // TODO
-        // NOTE Function objects created using Function.prototype.bind do not
-        // have a prototype property or the [[Code]], [[FormalParameters]], and
-        // [[Scope]] internal properties.
-        // XXX can't delete prototype in pure-js.
-
-        // 22. Return F.
-        return bound;
-    }
-});
-
-//
-// Array
-// =====
-//
-
-// ES5 15.4.3.2
-// http://es5.github.com/#x15.4.3.2
-// https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/isArray
-defineProperties(Array, { isArray: isArray });
-
-
-var boxedString = Object('a');
-var splitString = boxedString[0] !== 'a' || !(0 in boxedString);
-
-var properlyBoxesContext = function properlyBoxed(method) {
-    // Check node 0.6.21 bug where third parameter is not boxed
-    var properlyBoxesNonStrict = true;
-    var properlyBoxesStrict = true;
-    if (method) {
-        method.call('foo', function (_, __, context) {
-            if (typeof context !== 'object') { properlyBoxesNonStrict = false; }
-        });
-
-        method.call([1], function () {
-            'use strict';
-            properlyBoxesStrict = typeof this === 'string';
-        }, 'x');
-    }
-    return !!method && properlyBoxesNonStrict && properlyBoxesStrict;
-};
-
-defineProperties(ArrayPrototype, {
-    forEach: function forEach(fun /*, thisp*/) {
-        var object = toObject(this),
-            self = splitString && isString(this) ? this.split('') : object,
-            thisp = arguments[1],
-            i = -1,
-            length = self.length >>> 0;
-
-        // If no callback function or if callback is not a callable function
-        if (!isFunction(fun)) {
-            throw new TypeError(); // TODO message
-        }
-
-        while (++i < length) {
-            if (i in self) {
-                // Invoke the callback function with call, passing arguments:
-                // context, property value, property key, thisArg object
-                // context
-                fun.call(thisp, self[i], i, object);
-            }
-        }
-    }
-}, !properlyBoxesContext(ArrayPrototype.forEach));
-
-// ES5 15.4.4.14
-// http://es5.github.com/#x15.4.4.14
-// https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf
-var hasFirefox2IndexOfBug = Array.prototype.indexOf && [0, 1].indexOf(1, 2) !== -1;
-defineProperties(ArrayPrototype, {
-    indexOf: function indexOf(sought /*, fromIndex */ ) {
-        var self = splitString && isString(this) ? this.split('') : toObject(this),
-            length = self.length >>> 0;
-
-        if (!length) {
-            return -1;
-        }
-
-        var i = 0;
-        if (arguments.length > 1) {
-            i = toInteger(arguments[1]);
-        }
-
-        // handle negative indices
-        i = i >= 0 ? i : Math.max(0, length + i);
-        for (; i < length; i++) {
-            if (i in self && self[i] === sought) {
-                return i;
-            }
-        }
-        return -1;
-    }
-}, hasFirefox2IndexOfBug);
-
-//
-// String
-// ======
-//
-
-// ES5 15.5.4.14
-// http://es5.github.com/#x15.5.4.14
-
-// [bugfix, IE lt 9, firefox 4, Konqueror, Opera, obscure browsers]
-// Many browsers do not split properly with regular expressions or they
-// do not perform the split correctly under obscure conditions.
-// See http://blog.stevenlevithan.com/archives/cross-browser-split
-// I've tested in many browsers and this seems to cover the deviant ones:
-//    'ab'.split(/(?:ab)*/) should be ["", ""], not [""]
-//    '.'.split(/(.?)(.?)/) should be ["", ".", "", ""], not ["", ""]
-//    'tesst'.split(/(s)*/) should be ["t", undefined, "e", "s", "t"], not
-//       [undefined, "t", undefined, "e", ...]
-//    ''.split(/.?/) should be [], not [""]
-//    '.'.split(/()()/) should be ["."], not ["", "", "."]
-
-var string_split = StringPrototype.split;
-if (
-    'ab'.split(/(?:ab)*/).length !== 2 ||
-    '.'.split(/(.?)(.?)/).length !== 4 ||
-    'tesst'.split(/(s)*/)[1] === 't' ||
-    'test'.split(/(?:)/, -1).length !== 4 ||
-    ''.split(/.?/).length ||
-    '.'.split(/()()/).length > 1
-) {
-    (function () {
-        var compliantExecNpcg = /()??/.exec('')[1] === void 0; // NPCG: nonparticipating capturing group
-
-        StringPrototype.split = function (separator, limit) {
-            var string = this;
-            if (separator === void 0 && limit === 0) {
-                return [];
-            }
-
-            // If `separator` is not a regex, use native split
-            if (_toString.call(separator) !== '[object RegExp]') {
-                return string_split.call(this, separator, limit);
-            }
-
-            var output = [],
-                flags = (separator.ignoreCase ? 'i' : '') +
-                        (separator.multiline  ? 'm' : '') +
-                        (separator.extended   ? 'x' : '') + // Proposed for ES6
-                        (separator.sticky     ? 'y' : ''), // Firefox 3+
-                lastLastIndex = 0,
-                // Make `global` and avoid `lastIndex` issues by working with a copy
-                separator2, match, lastIndex, lastLength;
-            separator = new RegExp(separator.source, flags + 'g');
-            string += ''; // Type-convert
-            if (!compliantExecNpcg) {
-                // Doesn't need flags gy, but they don't hurt
-                separator2 = new RegExp('^' + separator.source + '$(?!\\s)', flags);
-            }
-            /* Values for `limit`, per the spec:
-             * If undefined: 4294967295 // Math.pow(2, 32) - 1
-             * If 0, Infinity, or NaN: 0
-             * If positive number: limit = Math.floor(limit); if (limit > 4294967295) limit -= 4294967296;
-             * If negative number: 4294967296 - Math.floor(Math.abs(limit))
-             * If other: Type-convert, then use the above rules
-             */
-            limit = limit === void 0 ?
-                -1 >>> 0 : // Math.pow(2, 32) - 1
-                ToUint32(limit);
-            while (match = separator.exec(string)) {
-                // `separator.lastIndex` is not reliable cross-browser
-                lastIndex = match.index + match[0].length;
-                if (lastIndex > lastLastIndex) {
-                    output.push(string.slice(lastLastIndex, match.index));
-                    // Fix browsers whose `exec` methods don't consistently return `undefined` for
-                    // nonparticipating capturing groups
-                    if (!compliantExecNpcg && match.length > 1) {
-                        match[0].replace(separator2, function () {
-                            for (var i = 1; i < arguments.length - 2; i++) {
-                                if (arguments[i] === void 0) {
-                                    match[i] = void 0;
-                                }
-                            }
-                        });
-                    }
-                    if (match.length > 1 && match.index < string.length) {
-                        ArrayPrototype.push.apply(output, match.slice(1));
-                    }
-                    lastLength = match[0].length;
-                    lastLastIndex = lastIndex;
-                    if (output.length >= limit) {
-                        break;
-                    }
-                }
-                if (separator.lastIndex === match.index) {
-                    separator.lastIndex++; // Avoid an infinite loop
-                }
-            }
-            if (lastLastIndex === string.length) {
-                if (lastLength || !separator.test('')) {
-                    output.push('');
-                }
-            } else {
-                output.push(string.slice(lastLastIndex));
-            }
-            return output.length > limit ? output.slice(0, limit) : output;
-        };
-    }());
-
-// [bugfix, chrome]
-// If separator is undefined, then the result array contains just one String,
-// which is the this value (converted to a String). If limit is not undefined,
-// then the output array is truncated so that it contains no more than limit
-// elements.
-// "0".split(undefined, 0) -> []
-} else if ('0'.split(void 0, 0).length) {
-    StringPrototype.split = function split(separator, limit) {
-        if (separator === void 0 && limit === 0) { return []; }
-        return string_split.call(this, separator, limit);
-    };
-}
-
-// ECMA-262, 3rd B.2.3
-// Not an ECMAScript standard, although ECMAScript 3rd Edition has a
-// non-normative section suggesting uniform semantics and it should be
-// normalized across all browsers
-// [bugfix, IE lt 9] IE < 9 substr() with negative value not working in IE
-var string_substr = StringPrototype.substr;
-var hasNegativeSubstrBug = ''.substr && '0b'.substr(-1) !== 'b';
-defineProperties(StringPrototype, {
-    substr: function substr(start, length) {
-        return string_substr.call(
-            this,
-            start < 0 ? ((start = this.length + start) < 0 ? 0 : start) : start,
-            length
-        );
-    }
-}, hasNegativeSubstrBug);
-
-
-/***/ }),
-/* 317 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = [
-  // streaming transports
-  __webpack_require__(327)
-, __webpack_require__(329)
-, __webpack_require__(144)
-, __webpack_require__(140)
-, __webpack_require__(86)(__webpack_require__(140))
-
-  // polling transports
-, __webpack_require__(141)
-, __webpack_require__(86)(__webpack_require__(141))
-, __webpack_require__(145)
-, __webpack_require__(328)
-, __webpack_require__(86)(__webpack_require__(145))
-, __webpack_require__(319)
-];
-
-
-/***/ }),
-/* 318 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-var Driver = global.WebSocket || global.MozWebSocket;
-if (Driver) {
-	module.exports = function WebSocketBrowserDriver(url) {
-		return new Driver(url);
-	};
-} else {
-	module.exports = undefined;
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
-
-/***/ }),
-/* 319 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-// The simplest and most robust transport, using the well-know cross
-// domain hack - JSONP. This transport is quite inefficient - one
-// message could use up to one http request. But at least it works almost
-// everywhere.
-// Known limitations:
-//   o you will get a spinning cursor
-//   o for Konqueror a dumb timer is needed to detect errors
-
-var inherits = __webpack_require__(3)
-  , SenderReceiver = __webpack_require__(143)
-  , JsonpReceiver = __webpack_require__(324)
-  , jsonpSender = __webpack_require__(325)
-  ;
-
-function JsonPTransport(transUrl) {
-  if (!JsonPTransport.enabled()) {
-    throw new Error('Transport created when disabled');
-  }
-  SenderReceiver.call(this, transUrl, '/jsonp', jsonpSender, JsonpReceiver);
-}
-
-inherits(JsonPTransport, SenderReceiver);
-
-JsonPTransport.enabled = function() {
-  return !!global.document;
-};
-
-JsonPTransport.transportName = 'jsonp-polling';
-JsonPTransport.roundTrips = 1;
-JsonPTransport.needBody = true;
-
-module.exports = JsonPTransport;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
-
-/***/ }),
-/* 320 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var inherits = __webpack_require__(3)
-  , EventEmitter = __webpack_require__(13).EventEmitter
-  ;
-
-var debug = function() {};
-if (process.env.NODE_ENV !== 'production') {
-  debug = __webpack_require__(7)('sockjs-client:buffered-sender');
-}
-
-function BufferedSender(url, sender) {
-  debug(url);
-  EventEmitter.call(this);
-  this.sendBuffer = [];
-  this.sender = sender;
-  this.url = url;
-}
-
-inherits(BufferedSender, EventEmitter);
-
-BufferedSender.prototype.send = function(message) {
-  debug('send', message);
-  this.sendBuffer.push(message);
-  if (!this.sendStop) {
-    this.sendSchedule();
-  }
-};
-
-// For polling transports in a situation when in the message callback,
-// new message is being send. If the sending connection was started
-// before receiving one, it is possible to saturate the network and
-// timeout due to the lack of receiving socket. To avoid that we delay
-// sending messages by some small time, in order to let receiving
-// connection be started beforehand. This is only a halfmeasure and
-// does not fix the big problem, but it does make the tests go more
-// stable on slow networks.
-BufferedSender.prototype.sendScheduleWait = function() {
-  debug('sendScheduleWait');
-  var self = this;
-  var tref;
-  this.sendStop = function() {
-    debug('sendStop');
-    self.sendStop = null;
-    clearTimeout(tref);
-  };
-  tref = setTimeout(function() {
-    debug('timeout');
-    self.sendStop = null;
-    self.sendSchedule();
-  }, 25);
-};
-
-BufferedSender.prototype.sendSchedule = function() {
-  debug('sendSchedule', this.sendBuffer.length);
-  var self = this;
-  if (this.sendBuffer.length > 0) {
-    var payload = '[' + this.sendBuffer.join(',') + ']';
-    this.sendStop = this.sender(this.url, payload, function(err) {
-      self.sendStop = null;
-      if (err) {
-        debug('error', err);
-        self.emit('close', err.code || 1006, 'Sending error: ' + err);
-        self.close();
-      } else {
-        self.sendScheduleWait();
-      }
-    });
-    this.sendBuffer = [];
-  }
-};
-
-BufferedSender.prototype._cleanup = function() {
-  debug('_cleanup');
-  this.removeAllListeners();
-};
-
-BufferedSender.prototype.close = function() {
-  debug('close');
-  this._cleanup();
-  if (this.sendStop) {
-    this.sendStop();
-    this.sendStop = null;
-  }
-};
-
-module.exports = BufferedSender;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 321 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var inherits = __webpack_require__(3)
-  , EventEmitter = __webpack_require__(13).EventEmitter
-  ;
-
-var debug = function() {};
-if (process.env.NODE_ENV !== 'production') {
-  debug = __webpack_require__(7)('sockjs-client:polling');
-}
-
-function Polling(Receiver, receiveUrl, AjaxObject) {
-  debug(receiveUrl);
-  EventEmitter.call(this);
-  this.Receiver = Receiver;
-  this.receiveUrl = receiveUrl;
-  this.AjaxObject = AjaxObject;
-  this._scheduleReceiver();
-}
-
-inherits(Polling, EventEmitter);
-
-Polling.prototype._scheduleReceiver = function() {
-  debug('_scheduleReceiver');
-  var self = this;
-  var poll = this.poll = new this.Receiver(this.receiveUrl, this.AjaxObject);
-
-  poll.on('message', function(msg) {
-    debug('message', msg);
-    self.emit('message', msg);
-  });
-
-  poll.once('close', function(code, reason) {
-    debug('close', code, reason, self.pollIsClosing);
-    self.poll = poll = null;
-
-    if (!self.pollIsClosing) {
-      if (reason === 'network') {
-        self._scheduleReceiver();
-      } else {
-        self.emit('close', code || 1006, reason);
-        self.removeAllListeners();
-      }
-    }
-  });
-};
-
-Polling.prototype.abort = function() {
-  debug('abort');
-  this.removeAllListeners();
-  this.pollIsClosing = true;
-  if (this.poll) {
-    this.poll.abort();
-  }
-};
-
-module.exports = Polling;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 322 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var inherits = __webpack_require__(3)
-  , EventEmitter = __webpack_require__(13).EventEmitter
-  , EventSourceDriver = __webpack_require__(139)
-  ;
-
-var debug = function() {};
-if (process.env.NODE_ENV !== 'production') {
-  debug = __webpack_require__(7)('sockjs-client:receiver:eventsource');
-}
-
-function EventSourceReceiver(url) {
-  debug(url);
-  EventEmitter.call(this);
-
-  var self = this;
-  var es = this.es = new EventSourceDriver(url);
-  es.onmessage = function(e) {
-    debug('message', e.data);
-    self.emit('message', decodeURI(e.data));
-  };
-  es.onerror = function(e) {
-    debug('error', es.readyState, e);
-    // ES on reconnection has readyState = 0 or 1.
-    // on network error it's CLOSED = 2
-    var reason = (es.readyState !== 2 ? 'network' : 'permanent');
-    self._cleanup();
-    self._close(reason);
-  };
-}
-
-inherits(EventSourceReceiver, EventEmitter);
-
-EventSourceReceiver.prototype.abort = function() {
-  debug('abort');
-  this._cleanup();
-  this._close('user');
-};
-
-EventSourceReceiver.prototype._cleanup = function() {
-  debug('cleanup');
-  var es = this.es;
-  if (es) {
-    es.onmessage = es.onerror = null;
-    es.close();
-    this.es = null;
-  }
-};
-
-EventSourceReceiver.prototype._close = function(reason) {
-  debug('close', reason);
-  var self = this;
-  // Safari and chrome < 15 crash if we close window before
-  // waiting for ES cleanup. See:
-  // https://code.google.com/p/chromium/issues/detail?id=89155
-  setTimeout(function() {
-    self.emit('close', null, reason);
-    self.removeAllListeners();
-  }, 200);
-};
-
-module.exports = EventSourceReceiver;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 323 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process, global) {
-
-var inherits = __webpack_require__(3)
-  , iframeUtils = __webpack_require__(45)
-  , urlUtils = __webpack_require__(16)
-  , EventEmitter = __webpack_require__(13).EventEmitter
-  , random = __webpack_require__(37)
-  ;
-
-var debug = function() {};
-if (process.env.NODE_ENV !== 'production') {
-  debug = __webpack_require__(7)('sockjs-client:receiver:htmlfile');
-}
-
-function HtmlfileReceiver(url) {
-  debug(url);
-  EventEmitter.call(this);
-  var self = this;
-  iframeUtils.polluteGlobalNamespace();
-
-  this.id = 'a' + random.string(6);
-  url = urlUtils.addQuery(url, 'c=' + decodeURIComponent(iframeUtils.WPrefix + '.' + this.id));
-
-  debug('using htmlfile', HtmlfileReceiver.htmlfileEnabled);
-  var constructFunc = HtmlfileReceiver.htmlfileEnabled ?
-      iframeUtils.createHtmlfile : iframeUtils.createIframe;
-
-  global[iframeUtils.WPrefix][this.id] = {
-    start: function() {
-      debug('start');
-      self.iframeObj.loaded();
-    }
-  , message: function(data) {
-      debug('message', data);
-      self.emit('message', data);
-    }
-  , stop: function() {
-      debug('stop');
-      self._cleanup();
-      self._close('network');
-    }
-  };
-  this.iframeObj = constructFunc(url, function() {
-    debug('callback');
-    self._cleanup();
-    self._close('permanent');
-  });
-}
-
-inherits(HtmlfileReceiver, EventEmitter);
-
-HtmlfileReceiver.prototype.abort = function() {
-  debug('abort');
-  this._cleanup();
-  this._close('user');
-};
-
-HtmlfileReceiver.prototype._cleanup = function() {
-  debug('_cleanup');
-  if (this.iframeObj) {
-    this.iframeObj.cleanup();
-    this.iframeObj = null;
-  }
-  delete global[iframeUtils.WPrefix][this.id];
-};
-
-HtmlfileReceiver.prototype._close = function(reason) {
-  debug('_close', reason);
-  this.emit('close', null, reason);
-  this.removeAllListeners();
-};
-
-HtmlfileReceiver.htmlfileEnabled = false;
-
-// obfuscate to avoid firewalls
-var axo = ['Active'].concat('Object').join('X');
-if (axo in global) {
-  try {
-    HtmlfileReceiver.htmlfileEnabled = !!new global[axo]('htmlfile');
-  } catch (x) {
-    // intentionally empty
-  }
-}
-
-HtmlfileReceiver.enabled = HtmlfileReceiver.htmlfileEnabled || iframeUtils.iframeEnabled;
-
-module.exports = HtmlfileReceiver;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)))
-
-/***/ }),
-/* 324 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process, global) {
-
-var utils = __webpack_require__(45)
-  , random = __webpack_require__(37)
-  , browser = __webpack_require__(44)
-  , urlUtils = __webpack_require__(16)
-  , inherits = __webpack_require__(3)
-  , EventEmitter = __webpack_require__(13).EventEmitter
-  ;
-
-var debug = function() {};
-if (process.env.NODE_ENV !== 'production') {
-  debug = __webpack_require__(7)('sockjs-client:receiver:jsonp');
-}
-
-function JsonpReceiver(url) {
-  debug(url);
-  var self = this;
-  EventEmitter.call(this);
-
-  utils.polluteGlobalNamespace();
-
-  this.id = 'a' + random.string(6);
-  var urlWithId = urlUtils.addQuery(url, 'c=' + encodeURIComponent(utils.WPrefix + '.' + this.id));
-
-  global[utils.WPrefix][this.id] = this._callback.bind(this);
-  this._createScript(urlWithId);
-
-  // Fallback mostly for Konqueror - stupid timer, 35 seconds shall be plenty.
-  this.timeoutId = setTimeout(function() {
-    debug('timeout');
-    self._abort(new Error('JSONP script loaded abnormally (timeout)'));
-  }, JsonpReceiver.timeout);
-}
-
-inherits(JsonpReceiver, EventEmitter);
-
-JsonpReceiver.prototype.abort = function() {
-  debug('abort');
-  if (global[utils.WPrefix][this.id]) {
-    var err = new Error('JSONP user aborted read');
-    err.code = 1000;
-    this._abort(err);
-  }
-};
-
-JsonpReceiver.timeout = 35000;
-JsonpReceiver.scriptErrorTimeout = 1000;
-
-JsonpReceiver.prototype._callback = function(data) {
-  debug('_callback', data);
-  this._cleanup();
-
-  if (this.aborting) {
-    return;
-  }
-
-  if (data) {
-    debug('message', data);
-    this.emit('message', data);
-  }
-  this.emit('close', null, 'network');
-  this.removeAllListeners();
-};
-
-JsonpReceiver.prototype._abort = function(err) {
-  debug('_abort', err);
-  this._cleanup();
-  this.aborting = true;
-  this.emit('close', err.code, err.message);
-  this.removeAllListeners();
-};
-
-JsonpReceiver.prototype._cleanup = function() {
-  debug('_cleanup');
-  clearTimeout(this.timeoutId);
-  if (this.script2) {
-    this.script2.parentNode.removeChild(this.script2);
-    this.script2 = null;
-  }
-  if (this.script) {
-    var script = this.script;
-    // Unfortunately, you can't really abort script loading of
-    // the script.
-    script.parentNode.removeChild(script);
-    script.onreadystatechange = script.onerror =
-        script.onload = script.onclick = null;
-    this.script = null;
-  }
-  delete global[utils.WPrefix][this.id];
-};
-
-JsonpReceiver.prototype._scriptError = function() {
-  debug('_scriptError');
-  var self = this;
-  if (this.errorTimer) {
-    return;
-  }
-
-  this.errorTimer = setTimeout(function() {
-    if (!self.loadedOkay) {
-      self._abort(new Error('JSONP script loaded abnormally (onerror)'));
-    }
-  }, JsonpReceiver.scriptErrorTimeout);
-};
-
-JsonpReceiver.prototype._createScript = function(url) {
-  debug('_createScript', url);
-  var self = this;
-  var script = this.script = global.document.createElement('script');
-  var script2;  // Opera synchronous load trick.
-
-  script.id = 'a' + random.string(8);
-  script.src = url;
-  script.type = 'text/javascript';
-  script.charset = 'UTF-8';
-  script.onerror = this._scriptError.bind(this);
-  script.onload = function() {
-    debug('onload');
-    self._abort(new Error('JSONP script loaded abnormally (onload)'));
-  };
-
-  // IE9 fires 'error' event after onreadystatechange or before, in random order.
-  // Use loadedOkay to determine if actually errored
-  script.onreadystatechange = function() {
-    debug('onreadystatechange', script.readyState);
-    if (/loaded|closed/.test(script.readyState)) {
-      if (script && script.htmlFor && script.onclick) {
-        self.loadedOkay = true;
-        try {
-          // In IE, actually execute the script.
-          script.onclick();
-        } catch (x) {
-          // intentionally empty
-        }
-      }
-      if (script) {
-        self._abort(new Error('JSONP script loaded abnormally (onreadystatechange)'));
-      }
-    }
-  };
-  // IE: event/htmlFor/onclick trick.
-  // One can't rely on proper order for onreadystatechange. In order to
-  // make sure, set a 'htmlFor' and 'event' properties, so that
-  // script code will be installed as 'onclick' handler for the
-  // script object. Later, onreadystatechange, manually execute this
-  // code. FF and Chrome doesn't work with 'event' and 'htmlFor'
-  // set. For reference see:
-  //   http://jaubourg.net/2010/07/loading-script-as-onclick-handler-of.html
-  // Also, read on that about script ordering:
-  //   http://wiki.whatwg.org/wiki/Dynamic_Script_Execution_Order
-  if (typeof script.async === 'undefined' && global.document.attachEvent) {
-    // According to mozilla docs, in recent browsers script.async defaults
-    // to 'true', so we may use it to detect a good browser:
-    // https://developer.mozilla.org/en/HTML/Element/script
-    if (!browser.isOpera()) {
-      // Naively assume we're in IE
-      try {
-        script.htmlFor = script.id;
-        script.event = 'onclick';
-      } catch (x) {
-        // intentionally empty
-      }
-      script.async = true;
-    } else {
-      // Opera, second sync script hack
-      script2 = this.script2 = global.document.createElement('script');
-      script2.text = "try{var a = document.getElementById('" + script.id + "'); if(a)a.onerror();}catch(x){};";
-      script.async = script2.async = false;
-    }
-  }
-  if (typeof script.async !== 'undefined') {
-    script.async = true;
-  }
-
-  var head = global.document.getElementsByTagName('head')[0];
-  head.insertBefore(script, head.firstChild);
-  if (script2) {
-    head.insertBefore(script2, head.firstChild);
-  }
-};
-
-module.exports = JsonpReceiver;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)))
-
-/***/ }),
-/* 325 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process, global) {
-
-var random = __webpack_require__(37)
-  , urlUtils = __webpack_require__(16)
-  ;
-
-var debug = function() {};
-if (process.env.NODE_ENV !== 'production') {
-  debug = __webpack_require__(7)('sockjs-client:sender:jsonp');
-}
-
-var form, area;
-
-function createIframe(id) {
-  debug('createIframe', id);
-  try {
-    // ie6 dynamic iframes with target="" support (thanks Chris Lambacher)
-    return global.document.createElement('<iframe name="' + id + '">');
-  } catch (x) {
-    var iframe = global.document.createElement('iframe');
-    iframe.name = id;
-    return iframe;
-  }
-}
-
-function createForm() {
-  debug('createForm');
-  form = global.document.createElement('form');
-  form.style.display = 'none';
-  form.style.position = 'absolute';
-  form.method = 'POST';
-  form.enctype = 'application/x-www-form-urlencoded';
-  form.acceptCharset = 'UTF-8';
-
-  area = global.document.createElement('textarea');
-  area.name = 'd';
-  form.appendChild(area);
-
-  global.document.body.appendChild(form);
-}
-
-module.exports = function(url, payload, callback) {
-  debug(url, payload);
-  if (!form) {
-    createForm();
-  }
-  var id = 'a' + random.string(8);
-  form.target = id;
-  form.action = urlUtils.addQuery(urlUtils.addPath(url, '/jsonp_send'), 'i=' + id);
-
-  var iframe = createIframe(id);
-  iframe.id = id;
-  iframe.style.display = 'none';
-  form.appendChild(iframe);
-
-  try {
-    area.value = payload;
-  } catch (e) {
-    // seriously broken browsers get here
-  }
-  form.submit();
-
-  var completed = function(err) {
-    debug('completed', id, err);
-    if (!iframe.onerror) {
-      return;
-    }
-    iframe.onreadystatechange = iframe.onerror = iframe.onload = null;
-    // Opera mini doesn't like if we GC iframe
-    // immediately, thus this timeout.
-    setTimeout(function() {
-      debug('cleaning up', id);
-      iframe.parentNode.removeChild(iframe);
-      iframe = null;
-    }, 500);
-    area.value = '';
-    // It is not possible to detect if the iframe succeeded or
-    // failed to submit our form.
-    callback(err);
-  };
-  iframe.onerror = function() {
-    debug('onerror', id);
-    completed();
-  };
-  iframe.onload = function() {
-    debug('onload', id);
-    completed();
-  };
-  iframe.onreadystatechange = function(e) {
-    debug('onreadystatechange', id, iframe.readyState, e);
-    if (iframe.readyState === 'complete') {
-      completed();
-    }
-  };
-  return function() {
-    debug('aborted', id);
-    completed(new Error('Aborted'));
-  };
-};
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)))
-
-/***/ }),
-/* 326 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var EventEmitter = __webpack_require__(13).EventEmitter
-  , inherits = __webpack_require__(3)
-  ;
-
-function XHRFake(/* method, url, payload, opts */) {
-  var self = this;
-  EventEmitter.call(this);
-
-  this.to = setTimeout(function() {
-    self.emit('finish', 200, '{}');
-  }, XHRFake.timeout);
-}
-
-inherits(XHRFake, EventEmitter);
-
-XHRFake.prototype.close = function() {
-  clearTimeout(this.to);
-};
-
-XHRFake.timeout = 2000;
-
-module.exports = XHRFake;
-
-
-/***/ }),
-/* 327 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var utils = __webpack_require__(25)
-  , urlUtils = __webpack_require__(16)
-  , inherits = __webpack_require__(3)
-  , EventEmitter = __webpack_require__(13).EventEmitter
-  , WebsocketDriver = __webpack_require__(318)
-  ;
-
-var debug = function() {};
-if (process.env.NODE_ENV !== 'production') {
-  debug = __webpack_require__(7)('sockjs-client:websocket');
-}
-
-function WebSocketTransport(transUrl, ignore, options) {
-  if (!WebSocketTransport.enabled()) {
-    throw new Error('Transport created when disabled');
-  }
-
-  EventEmitter.call(this);
-  debug('constructor', transUrl);
-
-  var self = this;
-  var url = urlUtils.addPath(transUrl, '/websocket');
-  if (url.slice(0, 5) === 'https') {
-    url = 'wss' + url.slice(5);
-  } else {
-    url = 'ws' + url.slice(4);
-  }
-  this.url = url;
-
-  this.ws = new WebsocketDriver(this.url, [], options);
-  this.ws.onmessage = function(e) {
-    debug('message event', e.data);
-    self.emit('message', e.data);
-  };
-  // Firefox has an interesting bug. If a websocket connection is
-  // created after onunload, it stays alive even when user
-  // navigates away from the page. In such situation let's lie -
-  // let's not open the ws connection at all. See:
-  // https://github.com/sockjs/sockjs-client/issues/28
-  // https://bugzilla.mozilla.org/show_bug.cgi?id=696085
-  this.unloadRef = utils.unloadAdd(function() {
-    debug('unload');
-    self.ws.close();
-  });
-  this.ws.onclose = function(e) {
-    debug('close event', e.code, e.reason);
-    self.emit('close', e.code, e.reason);
-    self._cleanup();
-  };
-  this.ws.onerror = function(e) {
-    debug('error event', e);
-    self.emit('close', 1006, 'WebSocket connection broken');
-    self._cleanup();
-  };
-}
-
-inherits(WebSocketTransport, EventEmitter);
-
-WebSocketTransport.prototype.send = function(data) {
-  var msg = '[' + data + ']';
-  debug('send', msg);
-  this.ws.send(msg);
-};
-
-WebSocketTransport.prototype.close = function() {
-  debug('close');
-  var ws = this.ws;
-  this._cleanup();
-  if (ws) {
-    ws.close();
-  }
-};
-
-WebSocketTransport.prototype._cleanup = function() {
-  debug('_cleanup');
-  var ws = this.ws;
-  if (ws) {
-    ws.onmessage = ws.onclose = ws.onerror = null;
-  }
-  utils.unloadDel(this.unloadRef);
-  this.unloadRef = this.ws = null;
-  this.removeAllListeners();
-};
-
-WebSocketTransport.enabled = function() {
-  debug('enabled');
-  return !!WebsocketDriver;
-};
-WebSocketTransport.transportName = 'websocket';
-
-// In theory, ws should require 1 round trip. But in chrome, this is
-// not very stable over SSL. Most likely a ws connection requires a
-// separate SSL connection, in which case 2 round trips are an
-// absolute minumum.
-WebSocketTransport.roundTrips = 2;
-
-module.exports = WebSocketTransport;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 328 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var inherits = __webpack_require__(3)
-  , AjaxBasedTransport = __webpack_require__(36)
-  , XdrStreamingTransport = __webpack_require__(144)
-  , XhrReceiver = __webpack_require__(58)
-  , XDRObject = __webpack_require__(87)
-  ;
-
-function XdrPollingTransport(transUrl) {
-  if (!XDRObject.enabled) {
-    throw new Error('Transport created when disabled');
-  }
-  AjaxBasedTransport.call(this, transUrl, '/xhr', XhrReceiver, XDRObject);
-}
-
-inherits(XdrPollingTransport, AjaxBasedTransport);
-
-XdrPollingTransport.enabled = XdrStreamingTransport.enabled;
-XdrPollingTransport.transportName = 'xdr-polling';
-XdrPollingTransport.roundTrips = 2; // preflight, ajax
-
-module.exports = XdrPollingTransport;
-
-
-/***/ }),
-/* 329 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-var inherits = __webpack_require__(3)
-  , AjaxBasedTransport = __webpack_require__(36)
-  , XhrReceiver = __webpack_require__(58)
-  , XHRCorsObject = __webpack_require__(59)
-  , XHRLocalObject = __webpack_require__(43)
-  , browser = __webpack_require__(44)
-  ;
-
-function XhrStreamingTransport(transUrl) {
-  if (!XHRLocalObject.enabled && !XHRCorsObject.enabled) {
-    throw new Error('Transport created when disabled');
-  }
-  AjaxBasedTransport.call(this, transUrl, '/xhr_streaming', XhrReceiver, XHRCorsObject);
-}
-
-inherits(XhrStreamingTransport, AjaxBasedTransport);
-
-XhrStreamingTransport.enabled = function(info) {
-  if (info.nullOrigin) {
-    return false;
-  }
-  // Opera doesn't support xhr-streaming #60
-  // But it might be able to #92
-  if (browser.isOpera()) {
-    return false;
-  }
-
-  return XHRCorsObject.enabled;
-};
-
-XhrStreamingTransport.transportName = 'xhr-streaming';
-XhrStreamingTransport.roundTrips = 2; // preflight, ajax
-
-// Safari gets confused when a streaming ajax request is started
-// before onload. This causes the load indicator to spin indefinetely.
-// Only require body when used in a browser
-XhrStreamingTransport.needBody = !!global.document;
-
-module.exports = XhrStreamingTransport;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
-
-/***/ }),
-/* 330 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-if (global.crypto && global.crypto.getRandomValues) {
-  module.exports.randomBytes = function(length) {
-    var bytes = new Uint8Array(length);
-    global.crypto.getRandomValues(bytes);
-    return bytes;
-  };
-} else {
-  module.exports.randomBytes = function(length) {
-    var bytes = new Array(length);
-    for (var i = 0; i < length; i++) {
-      bytes[i] = Math.floor(Math.random() * 256);
-    }
-    return bytes;
-  };
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
-
-/***/ }),
-/* 331 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var JSON3 = __webpack_require__(21);
-
-// Some extra characters that Chrome gets wrong, and substitutes with
-// something else on the wire.
-// eslint-disable-next-line no-control-regex
-var extraEscapable = /[\x00-\x1f\ud800-\udfff\ufffe\uffff\u0300-\u0333\u033d-\u0346\u034a-\u034c\u0350-\u0352\u0357-\u0358\u035c-\u0362\u0374\u037e\u0387\u0591-\u05af\u05c4\u0610-\u0617\u0653-\u0654\u0657-\u065b\u065d-\u065e\u06df-\u06e2\u06eb-\u06ec\u0730\u0732-\u0733\u0735-\u0736\u073a\u073d\u073f-\u0741\u0743\u0745\u0747\u07eb-\u07f1\u0951\u0958-\u095f\u09dc-\u09dd\u09df\u0a33\u0a36\u0a59-\u0a5b\u0a5e\u0b5c-\u0b5d\u0e38-\u0e39\u0f43\u0f4d\u0f52\u0f57\u0f5c\u0f69\u0f72-\u0f76\u0f78\u0f80-\u0f83\u0f93\u0f9d\u0fa2\u0fa7\u0fac\u0fb9\u1939-\u193a\u1a17\u1b6b\u1cda-\u1cdb\u1dc0-\u1dcf\u1dfc\u1dfe\u1f71\u1f73\u1f75\u1f77\u1f79\u1f7b\u1f7d\u1fbb\u1fbe\u1fc9\u1fcb\u1fd3\u1fdb\u1fe3\u1feb\u1fee-\u1fef\u1ff9\u1ffb\u1ffd\u2000-\u2001\u20d0-\u20d1\u20d4-\u20d7\u20e7-\u20e9\u2126\u212a-\u212b\u2329-\u232a\u2adc\u302b-\u302c\uaab2-\uaab3\uf900-\ufa0d\ufa10\ufa12\ufa15-\ufa1e\ufa20\ufa22\ufa25-\ufa26\ufa2a-\ufa2d\ufa30-\ufa6d\ufa70-\ufad9\ufb1d\ufb1f\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40-\ufb41\ufb43-\ufb44\ufb46-\ufb4e\ufff0-\uffff]/g
-  , extraLookup;
-
-// This may be quite slow, so let's delay until user actually uses bad
-// characters.
-var unrollLookup = function(escapable) {
-  var i;
-  var unrolled = {};
-  var c = [];
-  for (i = 0; i < 65536; i++) {
-    c.push( String.fromCharCode(i) );
-  }
-  escapable.lastIndex = 0;
-  c.join('').replace(escapable, function(a) {
-    unrolled[ a ] = '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-    return '';
-  });
-  escapable.lastIndex = 0;
-  return unrolled;
-};
-
-// Quote string, also taking care of unicode characters that browsers
-// often break. Especially, take care of unicode surrogates:
-// http://en.wikipedia.org/wiki/Mapping_of_Unicode_characters#Surrogates
-module.exports = {
-  quote: function(string) {
-    var quoted = JSON3.stringify(string);
-
-    // In most cases this should be very fast and good enough.
-    extraEscapable.lastIndex = 0;
-    if (!extraEscapable.test(quoted)) {
-      return quoted;
-    }
-
-    if (!extraLookup) {
-      extraLookup = unrollLookup(extraEscapable);
-    }
-
-    return quoted.replace(extraEscapable, function(a) {
-      return extraLookup[a];
-    });
-  }
-};
-
-
-/***/ }),
-/* 332 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-var logObject = {};
-['log', 'debug', 'warn'].forEach(function (level) {
-  var levelExists;
-
-  try {
-    levelExists = global.console && global.console[level] && global.console[level].apply;
-  } catch(e) {
-    // do nothing
-  }
-
-  logObject[level] = levelExists ? function () {
-    return global.console[level].apply(global.console, arguments);
-  } : (level === 'log' ? function () {} : logObject.log);
-});
-
-module.exports = logObject;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
-
-/***/ }),
-/* 333 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var debug = function() {};
-if (process.env.NODE_ENV !== 'production') {
-  debug = __webpack_require__(7)('sockjs-client:utils:transport');
-}
-
-module.exports = function(availableTransports) {
-  return {
-    filterToEnabled: function(transportsWhitelist, info) {
-      var transports = {
-        main: []
-      , facade: []
-      };
-      if (!transportsWhitelist) {
-        transportsWhitelist = [];
-      } else if (typeof transportsWhitelist === 'string') {
-        transportsWhitelist = [transportsWhitelist];
-      }
-
-      availableTransports.forEach(function(trans) {
-        if (!trans) {
-          return;
-        }
-
-        if (trans.transportName === 'websocket' && info.websocket === false) {
-          debug('disabled from server', 'websocket');
-          return;
-        }
-
-        if (transportsWhitelist.length &&
-            transportsWhitelist.indexOf(trans.transportName) === -1) {
-          debug('not in whitelist', trans.transportName);
-          return;
-        }
-
-        if (trans.enabled(info)) {
-          debug('enabled', trans.transportName);
-          transports.main.push(trans);
-          if (trans.facadeTransport) {
-            transports.facade.push(trans.facadeTransport);
-          }
-        } else {
-          debug('disabled', trans.transportName);
-        }
-      });
-      return transports;
-    }
-  };
-};
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 334 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = function (str) {
-	return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
-		return '%' + c.charCodeAt(0).toString(16).toUpperCase();
-	});
-};
-
-
-/***/ }),
-/* 335 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var ansiRegex = __webpack_require__(154)();
-
-module.exports = function (str) {
-	return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
-};
-
-
-/***/ }),
-/* 336 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var has = Object.prototype.hasOwnProperty;
-
-/**
- * Decode a URI encoded string.
- *
- * @param {String} input The URI encoded string.
- * @returns {String} The decoded string.
- * @api private
- */
-function decode(input) {
-  return decodeURIComponent(input.replace(/\+/g, ' '));
-}
-
-/**
- * Simple query string parser.
- *
- * @param {String} query The query string that needs to be parsed.
- * @returns {Object}
- * @api public
- */
-function querystring(query) {
-  var parser = /([^=?&]+)=?([^&]*)/g
-    , result = {}
-    , part;
-
-  //
-  // Little nifty parsing hack, leverage the fact that RegExp.exec increments
-  // the lastIndex property so we can continue executing this loop until we've
-  // parsed all results.
-  //
-  for (;
-    part = parser.exec(query);
-    result[decode(part[1])] = decode(part[2])
-  );
-
-  return result;
-}
-
-/**
- * Transform a query string to an object.
- *
- * @param {Object} obj Object that should be transformed.
- * @param {String} prefix Optional prefix.
- * @returns {String}
- * @api public
- */
-function querystringify(obj, prefix) {
-  prefix = prefix || '';
-
-  var pairs = [];
-
-  //
-  // Optionally prefix with a '?' if needed
-  //
-  if ('string' !== typeof prefix) prefix = '?';
-
-  for (var key in obj) {
-    if (has.call(obj, key)) {
-      pairs.push(encodeURIComponent(key) +'='+ encodeURIComponent(obj[key]));
-    }
-  }
-
-  return pairs.length ? prefix + pairs.join('&') : '';
-}
-
-//
-// Expose the module.
-//
-exports.stringify = querystringify;
-exports.parse = querystring;
-
-
-/***/ }),
-/* 337 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2014-2015, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = function() {};
-
-if (process.env.NODE_ENV !== 'production') {
-  warning = function(condition, format, args) {
-    var len = arguments.length;
-    args = new Array(len > 2 ? len - 2 : 0);
-    for (var key = 2; key < len; key++) {
-      args[key - 2] = arguments[key];
-    }
-    if (format === undefined) {
-      throw new Error(
-        '`warning(condition, format, ...args)` requires a warning ' +
-        'message argument'
-      );
-    }
-
-    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
-      throw new Error(
-        'The warning format should be able to uniquely identify this ' +
-        'warning. Please, use a more descriptive format than: ' + format
-      );
-    }
-
-    if (!condition) {
-      var argIndex = 0;
-      var message = 'Warning: ' +
-        format.replace(/%s/g, function() {
-          return args[argIndex++];
-        });
-      if (typeof console !== 'undefined') {
-        console.error(message);
-      }
-      try {
-        // This error was thrown as a convenience so that you can use this stack
-        // to find the callsite that caused this warning to fire.
-        throw new Error(message);
-      } catch(x) {}
-    }
-  };
-}
-
-module.exports = warning;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 338 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// The error overlay is inspired (and mostly copied) from Create React App (https://github.com/facebookincubator/create-react-app)
-// They, in turn, got inspired by webpack-hot-middleware (https://github.com/glenjamin/webpack-hot-middleware).
-var ansiHTML = __webpack_require__(153);
-var Entities = __webpack_require__(189).AllHtmlEntities;
-var entities = new Entities();
-
-var colors = {
-	reset: ["transparent", "transparent"],
-	black: "181818",
-	red: "E36049",
-	green: "B3CB74",
-	yellow: "FFD080",
-	blue: "7CAFC2",
-	magenta: "7FACCA",
-	cyan: "C3C2EF",
-	lightgrey: "EBE7E3",
-	darkgrey: "6D7891"
-};
-ansiHTML.setColors(colors);
-
-function createOverlayIframe(onIframeLoad) {
-	var iframe = document.createElement("iframe");
-	iframe.id = "webpack-dev-server-client-overlay";
-	iframe.src = "about:blank";
-	iframe.style.position = "fixed";
-	iframe.style.left = 0;
-	iframe.style.top = 0;
-	iframe.style.right = 0;
-	iframe.style.bottom = 0;
-	iframe.style.width = "100vw";
-	iframe.style.height = "100vh";
-	iframe.style.border = "none";
-	iframe.style.zIndex = 9999999999;
-	iframe.onload = onIframeLoad;
-	return iframe;
-}
-
-function addOverlayDivTo(iframe) {
-	var div = iframe.contentDocument.createElement("div");
-	div.id = "webpack-dev-server-client-overlay-div";
-	div.style.position = "fixed";
-	div.style.boxSizing = "border-box";
-	div.style.left = 0;
-	div.style.top = 0;
-	div.style.right = 0;
-	div.style.bottom = 0;
-	div.style.width = "100vw";
-	div.style.height = "100vh";
-	div.style.backgroundColor = "black";
-	div.style.color = "#E8E8E8";
-	div.style.fontFamily = "Menlo, Consolas, monospace";
-	div.style.fontSize = "large";
-	div.style.padding = "2rem";
-	div.style.lineHeight = "1.2";
-	div.style.whiteSpace = "pre-wrap";
-	div.style.overflow = "auto";
-	iframe.contentDocument.body.appendChild(div);
-	return div;
-}
-
-var overlayIframe = null;
-var overlayDiv = null;
-var lastOnOverlayDivReady = null;
-
-function ensureOverlayDivExists(onOverlayDivReady) {
-	if(overlayDiv) {
-	// Everything is ready, call the callback right away.
-		onOverlayDivReady(overlayDiv);
-		return;
-	}
-
-	// Creating an iframe may be asynchronous so we'll schedule the callback.
-	// In case of multiple calls, last callback wins.
-	lastOnOverlayDivReady = onOverlayDivReady;
-
-	if(overlayIframe) {
-		// We're already creating it.
-		return;
-	}
-
-	// Create iframe and, when it is ready, a div inside it.
-	overlayIframe = createOverlayIframe(function onIframeLoad() {
-		overlayDiv = addOverlayDivTo(overlayIframe);
-		// Now we can talk!
-		lastOnOverlayDivReady(overlayDiv);
-	});
-
-	// Zalgo alert: onIframeLoad() will be called either synchronously
-	// or asynchronously depending on the browser.
-	// We delay adding it so `overlayIframe` is set when `onIframeLoad` fires.
-	document.body.appendChild(overlayIframe);
-}
-
-function showMessageOverlay(message) {
-	ensureOverlayDivExists(function onOverlayDivReady(overlayDiv) {
-		// Make it look similar to our terminal.
-		overlayDiv.innerHTML =
-			"<span style=\"color: #" +
-			colors.red +
-			"\">Failed to compile.</span><br><br>" +
-			ansiHTML(entities.encode(message));
-	});
-}
-
-function destroyErrorOverlay() {
-	if(!overlayDiv) {
-		// It is not there in the first place.
-		return;
-	}
-
-	// Clean up and reset internal state.
-	document.body.removeChild(overlayIframe);
-	overlayDiv = null;
-	overlayIframe = null;
-	lastOnOverlayDivReady = null;
-}
-
-// Successful compilation.
-exports.clear = function handleSuccess() {
-	destroyErrorOverlay();
-}
-
-// Compilation with errors (e.g. syntax error or missing modules).
-exports.showMessage = function handleMessage(messages) {
-	showMessageOverlay(messages[0]);
-}
-
-
-/***/ }),
-/* 339 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var SockJS = __webpack_require__(308);
-
-var retries = 0;
-var sock = null;
-
-function socket(url, handlers) {
-	sock = new SockJS(url);
-
-	sock.onopen = function() {
-		retries = 0;
-	}
-
-	sock.onclose = function() {
-		if(retries === 0)
-			handlers.close();
-
-		// Try to reconnect.
-		sock = null;
-
-		// After 10 retries stop trying, to prevent logspam.
-		if(retries <= 10) {
-			// Exponentially increase timeout to reconnect.
-			// Respectfully copied from the package `got`.
-			var retryInMs = 1000 * Math.pow(2, retries) + Math.random() * 100;
-			retries += 1;
-
-			setTimeout(function() {
-				socket(url, handlers);
-			}, retryInMs);
-		}
-	};
-
-	sock.onmessage = function(e) {
-		// This assumes that all data sent via the websocket is JSON.
-		var msg = JSON.parse(e.data);
-		if(handlers[msg.type])
-			handlers[msg.type](msg.data);
-	};
-}
-
-module.exports = socket;
-
-
-/***/ }),
-/* 340 */
-/***/ (function(module, exports) {
-
-/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
-module.exports = __webpack_amd_options__;
-
-/* WEBPACK VAR INJECTION */}.call(exports, {}))
-
-/***/ }),
-/* 341 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-module.exports = function(updatedModules, renewedModules) {
-	var unacceptedModules = updatedModules.filter(function(moduleId) {
-		return renewedModules && renewedModules.indexOf(moduleId) < 0;
-	});
-
-	if(unacceptedModules.length > 0) {
-		console.warn("[HMR] The following modules couldn't be hot updated: (They would need a full reload!)");
-		unacceptedModules.forEach(function(moduleId) {
-			console.warn("[HMR]  - " + moduleId);
-		});
-	}
-
-	if(!renewedModules || renewedModules.length === 0) {
-		console.log("[HMR] Nothing hot updated.");
-	} else {
-		console.log("[HMR] Updated modules:");
-		renewedModules.forEach(function(moduleId) {
-			console.log("[HMR]  - " + moduleId);
-		});
-		var numberIds = renewedModules.every(function(moduleId) {
-			return typeof moduleId === "number";
-		});
-		if(numberIds)
-			console.log("[HMR] Consider using the NamedModulesPlugin for module names.");
-	}
-};
-
-
-/***/ }),
-/* 342 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(151);
-__webpack_require__(152);
-module.exports = __webpack_require__(150);
-
-
-/***/ })
-/******/ ]);
-//# sourceMappingURL=bundle.js.map
+     
