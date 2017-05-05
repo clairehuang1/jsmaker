@@ -13,18 +13,7 @@ return(
     <ul className="forms">
       <li>
         <label>
-          Type:
 
-        </label>
-        <select className="placeholders" name="type" onChange={handleChange}>
-
-          <option value="popup"> Popup </option>
-          <option value="banner"> Banner </option>
-          <option value="panel"> Panel </option>
-        </select>
-      </li>
-      <li>
-        <label>
           Background Color:
 
         </label>
