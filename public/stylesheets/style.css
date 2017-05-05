@@ -22,6 +22,10 @@ body {
   min-height: 400px;
 
 }
+#banner {
+  position: absolute;
+  background-color:black;
+}
 #organizeOwner{
   display:flex;
   justify-content: space-around;
@@ -62,14 +66,21 @@ body {
 	padding: 0;
 	z-index: -9000;
 }
+#navpanel{
+  z-index: -1;
+  background-color: white;
+  display: flex;
+  padding-right: 30px;
+}
+
 #title{
-  padding-top:10px;
-  top:0;
-  left:0;
-  margin: 10px auto;
-  padding-left: 60px;
-  z-index:1000;
-  width:100%;
+    position: relative;
+  	top: 0;
+  	padding: 10px 0px;
+  	background: transparent;
+  	border: 0;
+    padding-left: 150px;
+
 }
 .code{
     text-transform: none;
