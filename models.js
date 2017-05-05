@@ -8,7 +8,6 @@ var userSchema = mongoose.Schema({
 });
 
 var package = mongoose.Schema({
-  type: String,
   menuitem: String,
   color: String,
   clientId:String,
