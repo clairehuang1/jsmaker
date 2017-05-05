@@ -49,10 +49,6 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
-
-
-
-
 // app.use('/', routes);
 // Passport
 app.use(session({
@@ -96,7 +92,7 @@ passport.use(new LocalStrategy(function(username, password, done) {
 
 
 app.use('/', auth(passport));
-// app.use('/', routes);
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

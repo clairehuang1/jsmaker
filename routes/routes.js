@@ -4,7 +4,6 @@ var models = require('../models');
 var User = models.User;
 var Package = models.Package;
 var fs = require('fs');
-const $ = require('jquery');
 var AWS = require('aws-sdk');
 var path = require('path');
 var handlebars = require('handlebars')
