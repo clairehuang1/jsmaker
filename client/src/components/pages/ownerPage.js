@@ -12,7 +12,8 @@ class OwnerPage extends Component{
   constructor(props){
     super(props);
     this.state={
-      displayColorPicker: false,
+      displayBGColorPicker: false,
+      displayTextColorPicker: false,
       selectedOption: 'banner',
       website:'',
       backgroundColor: '',
@@ -26,13 +27,25 @@ class OwnerPage extends Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleImageChange = this.handleImageChange.bind(this);
     this.onPreviewSubmit = this.onPreviewSubmit.bind(this);
-    this.handleColorClick = this.handleColorClick.bind(this);
-    this.handleColorClose = this.handleColorClose.bind(this);
+    this.handleBGColorClick = this.handleBGColorClick.bind(this);
+    this.handleBGColorClose = this.handleBGColorClose.bind(this);
+    this.handleTextColorClick = this.handleTextColorClick.bind(this);
+    this.handleTextColorClose = this.handleTextColorClose.bind(this);
     this.setBGColor = this.setBGColor.bind(this);
+    this.setTextColor = this.setTextColor.bind(this);
 
   }
   setBGColor(e) {
-    console.log(e.hex);
+    console.log("setting bg color", e);
+    this.setState({
+      backgroundColor: e.hex
+    })
+  }
+  setTextColor(e) {
+    console.log("setting text", e);
+    this.setState({
+      bodyTextColor: e.hex
+    })
   }
 
   handleChange(event){
@@ -81,26 +94,47 @@ class OwnerPage extends Component{
   handleSubmit(event){
     event.preventDefault();
     console.log("****STATE****", this.state)
-    //  const xhr = new XMLHttpRequest();
-    //  xhr.open('post', '/changeModal');
-    //  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    //  xhr.responseType='json';
-    //  xhr.addEventListener('load', () => {
-    //     if (xhr.status === 200) {
-    //       console.log(xhr.response.message);
-    //     } else {
-    //       console.log('boohoo');
-    //     }
-    //   });
-    //   xhr.send();
+    var formData ='';
+    const currentState = this.state
+    Object.keys(currentState).forEach(function(key,i) {
+      // key: the name of the object key
+      // index: the ordinal position of the key within the object
+      //console.log("OBJ: ", obj);
+      formData += (encodeURIComponent(currentState[key]) + "=${" + encodeURIComponent(currentState[key]) +"}&");
+
+    });
+    console.log("FORM:", formData);
+    const xhr = new XMLHttpRequest();
+    xhr.open('post', '/changeModal');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.responseType='json';
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+        console.log('success, 200');
+        console.log(xhr.response.message);
+      } else {
+        console.log('boohoo');
+      }
+    });
+    xhr.send(formData);
   }
-  handleColorClick() {
-    console.log('gottem');
-    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+  handleBGColorClick(e) {
+    console.log('handle click bg', e);
+    this.setState({
+      displayBGColorPicker: !this.state.displayBGColorPicker })
   }
 
-  handleColorClose() {
-    this.setState({ displayColorPicker: false })
+  handleBGColorClose(e) {
+    this.setState({
+      displayBGColorPicker: false})
+  }
+  handleTextColorClick() {
+    console.log('gottem text');
+    this.setState({ displayTextColorPicker: !this.state.displayTextColorPicker })
+  }
+
+  handleTextColorClose() {
+    this.setState({ displayTextColorPicker: false })
   }
   render(){
 
@@ -128,67 +162,115 @@ class OwnerPage extends Component{
     <h2>Customize your widget:</h2>
     <div className="content-container">
       <form onSubmit={this.handleSubmit}>
-      <div className="form-container">
-        <div className="field-container">
-          <div>Your website</div>
-          <div><input name="website" onChange={this.handleChange}/></div>
-        </div>
-        <div className="column">
-          <div>Widget type</div>
+        <div className="form-container">
           <div className="field-container">
+            <div>Your website</div>
+            <div><input name="website" onChange={this.handleChange}/></div>
+          </div>
+          <div className="column">
+            <div>Widget type</div>
+            <div className="field-container">
 
-            <div>
-              <label className="selector">
-                <input type="radio" value="banner" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'banner'}/>
-                Banner
-              </label>
+              <div>
+                <label className="selector">
+                  <input type="radio" value="banner" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'banner'}/>
+                  Banner
+                </label>
+              </div>
+
+              <div>
+                <label className="selector">
+                  <input type="radio" value="panel" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'panel'}/>
+                  Panel
+                </label>
+              </div>
+
+              <div>
+                <label className="selector">
+                  <input type="radio" value="popup" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'popup'}/>
+                  Popup
+                </label>
+              </div>
+
             </div>
+          </div>
 
+          {this.state.selectedOption === 'banner' ?
+            (       <div> <div className="field-container">
+            <div>Background Color</div>
             <div>
-              <label className="selector">
-                <input type="radio" value="panel" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'panel'}/>
-                Panel
-              </label>
+              <div>
+                <button type="button" onClick={ this.handleBGColorClick }>Pick Color</button>
+                { this.state.displayBGColorPicker ? <div style={ popover }>
+                <div style={ cover } onClick={ this.handleBGColorClose }/>
+                <ChromePicker name="bgColorr" onChange={this.setBGColor} />
+              </div> : null }
             </div>
-
-            <div>
-              <label className="selector">
-                <input type="radio" value="popup" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'popup'}/>
-                Popup
-              </label>
-            </div>
-
           </div>
         </div>
 
         <div className="field-container">
-          <div>Background Color</div>
+          <div>Text Color</div>
           <div>
             <div>
-              <button onClick={ this.handleColorClick }>Pick Color</button>
-              { this.state.displayColorPicker ? <div style={ popover }>
-              <div style={ cover } onClick={ this.handleColorClose }/>
-              <ChromePicker name="bgColorr" onChange={this.setBGColor} />
+              <button type="button" onClick={ this.handleTextColorClick }>Pick Color</button>
+              { this.state.displayTextColorPicker ? <div style={ popover }>
+              <div style={ cover } onClick={ this.handleTextColorClose }/>
+              <ChromePicker name="bgColorr" onChange={this.setTextColor} />
             </div> : null }
           </div>
         </div>
       </div>
-      <div className="field-container">
-        <div>Text Color</div>
-        <div><input name="textColor" onChange={this.handleChange}/></div>
-      </div>
+
       <div className="field-container">
         <div>Text</div>
         <div><input name="body" onChange={this.handleChange}/></div>
+      </div></div>) : null}
+
+      {this.state.selectedOption === 'popup' ?
+        (<div>
+          <div className="field-container">
+            Choose your trigger button
+          </div>
+          <div className="field-container">
+            <div>Background Color</div>
+            <div>
+              <div>
+                <button type="button" onClick={ this.handleBGColorClick }>Pick Color</button>
+                { this.state.displayBGColorPicker ? <div style={ popover }>
+                <div style={ cover } onClick={ this.handleBGColorClose }/>
+                <ChromePicker onChange={this.setBGColor} />
+              </div> : null }
+            </div>
+          </div>
+        </div>
+
+        <div className="field-container">
+          <div>Text Color</div>
+          <div>
+            <div>
+              <button type="button" onClick={ this.handleTextColorClick }>Pick Color</button>
+              { this.state.displayTextColorPicker ? <div style={ popover }>
+              <div style={ cover } onClick={ this.handleTextColorClose }/>
+              <ChromePicker onChange={this.setTextColor} />
+            </div> : null }
+          </div>
+        </div>
       </div>
+
+
+      <div className="field-container">
+        <div>Text</div>
+        <div><input name="body" onChange={this.handleChange}/></div>
+      </div></div>) : null}
 
     </div>
     <button type="submit">Press</button>
   </form>
-    <div className="preview-container">
-      <Preview website={this.state.website} onPreviewSubmit={this.onPreviewSubmit} previewComponent={this.state.selectedOption}/>
-    </div>
+  <div className="preview-container">
+    <Preview website={this.state.website} onPreviewSubmit={this.onPreviewSubmit} previewComponent={this.state.selectedOption}/>
   </div>
+</div>
 </div>)
 }
 }
@@ -201,14 +283,14 @@ class OwnerPage extends Component{
 //           <input type="radio" value="banner" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'banner'}/>
 //           Banner
 //         </label>
-        // <label className="selector">
-        //   <input type="radio" value="panel" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'panel'}/>
-        //   Panel
-        // </label>
-        // <label className="selector">
-        //   <input type="radio" value="popup" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'popup'}/>
-        //   Popup
-        // </label>
+// <label className="selector">
+//   <input type="radio" value="panel" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'panel'}/>
+//   Panel
+// </label>
+// <label className="selector">
+//   <input type="radio" value="popup" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'popup'}/>
+//   Popup
+// </label>
 //       </form>
 //     </div>
 //     <GeneralForm backgroundColor={this.state.backgroundColor}
