@@ -79,7 +79,7 @@ body {
   	padding: 10px 0px;
   	background: transparent;
   	border: 0;
-    padding-left: 150px;
+    padding-left: 90px;
 
 }
 .code{
@@ -99,7 +99,7 @@ input{width:200px}
 label,input {width:350px; height: 20px; display:inline-block;}
 
 .title{
-  font-size: 30px;
+  font-size: 400px;
 }
 .btn{
   height:50px;

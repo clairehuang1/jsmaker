@@ -11,26 +11,26 @@ function GeneralForm(props){
     console.log("suh1")
     return (
       <div>
-      <h1> Editing Popup </h1>
+      <h3> Editing Popup </h3>
       <Popup handleSubmit={props.handleSubmit} handleChange={props.handleChange}/>
     </div>);
   }else if(type==="banner"){
     console.log("suh2")
     return (  <div>
-      <h1> Editing Banner </h1>
+      <h3> Editing Banner </h3>
       <Banner handleSubmit={props.handleSubmit} handleChange={props.handleChange}/>
     </div>);
   }else if (type==="panel"){
     console.log("suh3")
   return (
     <div>
-    <h1> Editing Panel </h1>
+    <h3> Editing Panel </h3>
     <CustomForm handleImageChange={props.handleImageChange} handleSubmit={props.handleSubmit} handleChange={props.handleChange}
   />
   </div>);
 }else return(
   <div>
-  <h1> Pick a type </h1>
+  <h3> Pick a type </h3>
   <CustomForm handleImageChange={props.handleImageChange} handleSubmit={props.handleSubmit} handleChange={props.handleChange}/>
 
 </div>);
