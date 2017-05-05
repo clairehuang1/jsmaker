@@ -12,6 +12,13 @@ body {
   background-color: #CBB4BA;
   color: white;
 }
+
+a {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #CBB4BA;
+  text-decoration: none;
+
+}
 #preview{
   text-transform: none;
   border-style: solid;
@@ -32,6 +39,14 @@ body {
   padding:30px;
 
 
+}
+
+.home-btn {
+  width: 100px;
+  height: 50px;
+  margin-right: 20px;
+  background-color: #fff;
+  border: 0px;
 }
 
 .forms{
@@ -82,6 +97,14 @@ body {
     padding-left: 150px;
 
 }
+
+.title-header {
+  padding-top:10px;
+  margin: 10px auto;
+  padding-left: 60px;
+  display: flex;
+}
+
 .code{
     text-transform: none;
     border-style: solid;
@@ -95,8 +118,6 @@ body {
   width: 200px;
 
 }
-input{width:200px}
-label,input {width:350px; height: 20px; display:inline-block;}
 
 .title{
   font-size: 30px;
@@ -105,4 +126,239 @@ label,input {width:350px; height: 20px; display:inline-block;}
   height:50px;
   width:200px;
   display:inline-block;
+}
+
+h2 {
+  color: #000;
+  font-size: 36px;
+}
+
+h3 {
+  color: #000;
+  font-size: 18px;
+}
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.side-panel-container {
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.side-content-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.slideout {
+background: #fff;
+box-shadow: 0 0 5px rgba(0,0,0,.3);
+color: #333;
+position: fixed;
+top: 100px;
+left: 0px;
+width: 500px;
+-webkit-transition-duration: 0.3s;
+-moz-transition-duration: 0.3s;
+-o-transition-duration: 0.3s;
+transition-duration: 0.3s;
+}
+
+.slideout.on {
+left: 0;
+}
+
+.slide {
+  position: absolute;
+  left: -300px;
+  width: 200px;
+  height: 400px;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 0s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0s;
+}
+
+.out {
+left: 0px;
+-webkit-animation: slide 0.5s forwards;
+-webkit-animation-delay: 0s;
+animation: slide 0.5s forwards;
+animation-delay: 0s;
+}
+
+#panel {
+width: 1px;
+opacity: 0;
+transition: .75s;
+}
+
+#panel.show {
+opacity: 1;
+width: 200px;
+height: 400px;
+}
+
+@-webkit-keyframes slide {
+  100% { left: 0; }
+}
+
+@keyframes slide {
+  100% { left: 0; }
+}
+
+.banner-container {
+  position: relative;
+  z-index: 1;
+  width: 500px;
+  float: left;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.banner-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.description-container {
+  flex-direction: column;
+}
+
+#myBtn {
+  position: fixed;
+  top: 20px;
+  left: 0px;
+  color: #fff;
+  background-color: #292929;
+  width: 150px;
+  height: 100px;
+  border: 0px solid #fff;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0 100%);
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    color: #000;
+    text-align:center;
+}
+
+.special-img {
+  height: 300px;
+}
+
+.poly {
+  background-color:green;
+  color: pink;
+  width: 400px;
+  height: 200px;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0 100%);
+}
+
+.selector {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+
+.preview-container {
+  display: flex;
+  flex: 5;
+}
+
+.field-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  padding-right: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.widget-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 800px;
+  padding-left: 60px;
+}
+
+h2 {
+  font-size: 18px;
+  color: #fff;
+}
+
+iframe {
+  width: 500px;
+  height: 440px;
+  padding:5px;
+  border: 0px;
+}
+
+.preview-widget {
+  position: fixed;
+  top: 0px;
+}
+
+.preview-box {
+  width: 505px;
+  height: 450px;
+  border: 2px solid #fff;
 }

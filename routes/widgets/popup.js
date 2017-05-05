@@ -124,7 +124,7 @@ window.portInterval = window.setTimeout(function(){
     <div><h2>Chikin chikin</h2></div>
     <div><h3>Free for $15!</h3></div>
   </div>
-  <div><img class="special-img" src="http://cms.cb.asmsrv.co/cnvyr/2015-06-30_Hardin-slow-cooker-cashew-chicken-vertical.jpg"</div>
+  <div><img class="special-img" src="/images/special.jpg"</div>
   </div>
   </div>
   </div>`)
