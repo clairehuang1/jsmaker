@@ -9,14 +9,30 @@ function GeneralForm(props){
   const type = props.type;
   if(type==="popup"){
     console.log("suh1")
-    return <Popup handleSubmit={props.handleSubmit} handleChange={props.handleChange}/>;
+    return (
+      <div>
+      <h1> Editing Popup </h1>
+      <Popup handleSubmit={props.handleSubmit} handleChange={props.handleChange}/>
+    </div>);
   }else if(type==="banner"){
     console.log("suh2")
-    return <Banner handleSubmit={props.handleSubmit} handleChange={props.handleChange}/>;
-  }else{
+    return (  <div>
+      <h1> Editing Banner </h1>
+      <Banner handleSubmit={props.handleSubmit} handleChange={props.handleChange}/>
+    </div>);
+  }else if (type==="panel"){
     console.log("suh3")
-  return <CustomForm handleImageChange={props.handleImageChange} handleSubmit={props.handleSubmit} handleChange={props.handleChange}
-  />;
-}
+  return (
+    <div>
+    <h1> Editing Panel </h1>
+    <CustomForm handleImageChange={props.handleImageChange} handleSubmit={props.handleSubmit} handleChange={props.handleChange}
+  />
+  </div>);
+}else return(
+  <div>
+  <h1> Pick a type </h1>
+  <CustomForm handleImageChange={props.handleImageChange} handleSubmit={props.handleSubmit} handleChange={props.handleChange}/>
+
+</div>);
 }
 export default GeneralForm;

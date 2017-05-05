@@ -8,8 +8,7 @@ const Popup =({
 })=>{
 return(
     <form onSubmit={handleSubmit}>
-    <h1> asuh betches dis is the popup </h1>
-    <ul className="forms">
+<ul className="forms">
       <li>
         <label>
           Type:
@@ -80,18 +79,6 @@ return(
         <label>
           Description:
           <input className="placeholders" name="description" onChange={handleChange}/>
-        </label>
-      </li>
-      <li>
-        <label>
-          Duration:
-          <input className="placeholders" name="duration" onChange={handleChange}/>
-        </label>
-      </li>
-      <li>
-        <label>
-          Upload a picture:
-          <input className="placeholders" name="picture" onChange={handleChange}/>
         </label>
       </li>
 
