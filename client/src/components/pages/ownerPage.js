@@ -30,6 +30,7 @@ class OwnerPage extends Component{
           this.handleChange = this.handleChange.bind(this);
           this.handleSubmit = this.handleSubmit.bind(this);
           this.handleImageChange = this.handleImageChange.bind(this);
+          this.onPreviewSubmit = this.onPreviewSubmit.bind(this);
   }
 
   handleChange(event){
@@ -42,6 +43,9 @@ class OwnerPage extends Component{
        [name]:value
      })
 
+   }
+   onPreviewSubmit(event){
+     console.log("PREVIEW");
    }
    handleImageChange(event){
      event.preventDefault();
@@ -113,7 +117,7 @@ class OwnerPage extends Component{
       handleImageSubmit={this.handleImageSubmit} handleChange={this.handleChange}/>
       </div>
       <div>
-      <Preview previewComponent={this.state.previewComponent}/>
+      <Preview onPreviewSubmit={this.onPreviewSubmit} previewComponent={this.state.previewComponent}/>
       </div>
       </div>
     )

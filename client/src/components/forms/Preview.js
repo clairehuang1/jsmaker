@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 
-function Preview(){
+const Preview =({
+  onPreviewSubmit
+})=>{
+
   return(
-    <div id="preview">
-      Preview
-    </div>
+    <div>
+      <button onSubmit={onPreviewSubmit} type="submit"> Click for a preview </button>
+      <div id="preview">
+        Preview
+
+      </div>
+
+      </div>
   )
 }
 
