@@ -7,6 +7,6 @@ function NavBar(){
         <h1 id="title">Widget Maker</h1>
       </div>
     )
-  
+
 }
 export default NavBar;
