@@ -10,9 +10,7 @@ const Preview =({
     <div className="preview-box">
 
       <iframe src={website}></iframe>
-      {(previewComponent === "popup") ? <PopupWidget/> : <div>1</div>}
-      {(previewComponent === "panel") ? <PanelWidget/> : <div>2</div>}
-      {(previewComponent === "banner") ? <BannerWidget/> : <div>2</div>}
+
 
 
       <button onSubmit={onPreviewSubmit} type="submit"> Click for a preview </button>
@@ -22,3 +20,7 @@ const Preview =({
 }
 
 export default Preview;
+//
+// {(previewComponent === "popup") ? <PopupWidget/> : <div>1</div>}
+// {(previewComponent === "panel") ? <PanelWidget/> : <div>2</div>}
+// {(previewComponent === "banner") ? <BannerWidget/> : <div>2</div>}

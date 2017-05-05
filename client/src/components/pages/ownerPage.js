@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { ChromePicker } from 'react-color';
+import { ChromePicker, SketchPicker } from 'react-color';
 import CustomForm from '../forms/customize-form.js'
 import MainSelector from '../forms/MainSelector'
 import Popup from '../forms/Popup.js'
@@ -9,12 +9,12 @@ import Preview from '../forms/Preview.js'
 import WidgetSelector from '../forms/WidgetSelector.js'
 
 class OwnerPage extends Component{
-  constructor(props){
-    super(props);
+  constructor(props, context){
+    super(props, context);
     this.state={
       displayBGColorPicker: false,
       displayTextColorPicker: false,
-      selectedOption: 'popup',
+      selectedOption: 'banner',
       selectedTrigger:'',
       website:'',
       backgroundColor: '',
@@ -44,6 +44,13 @@ class OwnerPage extends Component{
       backgroundColor: e.hex
     })
   }
+
+  settingBGColorChange(c, e){
+    e.preventDefault();
+    console.log("***COLOR", c);
+    console.log("+++EVENT", e);
+  }
+
   setTextColor(e) {
     console.log("setting text", e);
     this.setState({
@@ -129,15 +136,16 @@ class OwnerPage extends Component{
     xhr.send(formData);
   }
   handleBGColorClick(e) {
-    console.log('handle click bg', e);
     this.setState({
       displayBGColorPicker: !this.state.displayBGColorPicker })
   }
 
   handleBGColorClose(e) {
+    console.log('handle close bg', e);
     this.setState({
       displayBGColorPicker: false})
   }
+
   handleTextColorClick() {
     console.log('gottem text');
     this.setState({ displayTextColorPicker: !this.state.displayTextColorPicker })
@@ -213,7 +221,7 @@ class OwnerPage extends Component{
                 <button type="button" onClick={ this.handleBGColorClick }>Pick Color</button>
                 { this.state.displayBGColorPicker ? <div style={ popover }>
                 <div style={ cover } onClick={ this.handleBGColorClose }/>
-                <ChromePicker name="bgColorr" onChange={this.setBGColor} />
+                <ChromePicker onChange={this.settingBGColorChange}onChangeComplete={this.setBGColor}/>
               </div> : null }
             </div>
           </div>
@@ -226,7 +234,7 @@ class OwnerPage extends Component{
               <button type="button" onClick={ this.handleTextColorClick }>Pick Color</button>
               { this.state.displayTextColorPicker ? <div style={ popover }>
               <div style={ cover } onClick={ this.handleTextColorClose }/>
-              <ChromePicker name="bgColorr" onChange={this.setTextColor} />
+              <ChromePicker onChange={this.setTextColor} />
             </div> : null }
           </div>
         </div>
@@ -316,7 +324,7 @@ class OwnerPage extends Component{
 
       <div className="field-container">
         <div>Image</div>
-        <div><input name="bodyImage" onChange={this.handleChange}/></div>
+        <div><input name="imageLink" onChange={this.handleChange}/></div>
       </div>
 
 

@@ -7,6 +7,7 @@ t.setAttribute('src', "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.
 document.getElementsByTagName('head')[0].appendChild(t);
 
 console.log(window.location.pathname);
+console.log("meow");
 
 var paramGetter = function(name){
   console.log('i am inside the getter')
@@ -57,7 +58,7 @@ window.portInterval = window.setTimeout(function(){
     color: #fff;
     background-color: {{backgroundColor}};
     color: {{bodyTextColor}}
-    border: 2px solid {{borderColor}};
+    border: 0px;
   }
   .modal {
       display: none; /* Hidden by default */
@@ -110,17 +111,19 @@ window.portInterval = window.setTimeout(function(){
   	-moz-border-radius: 50px;
   	-webkit-border-radius: 50px;
   	border-radius: 50px;
+    border: 0px;
   }
 
   .square {
   	width: 100px;
   	height: 100px;
-  	background: red;
+    border: 0px;
   }
 
   .poly {
     width: 150px;
     height: 100px;
+    border: 0px;
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0 100%);
   }
   </style>`;
@@ -135,7 +138,7 @@ window.portInterval = window.setTimeout(function(){
     <div><h2>{{bodyText}}</h2></div>
     <div><h3>{{descriptionText}}</h3></div>
   </div>
-  <div><img class="special-img" src="/images/special.jpg"</div>
+  <div><img class="special-img" src="{{imageLink}}"</div>
   </div>
   </div>
   </div>`)

@@ -16,6 +16,8 @@ var package = mongoose.Schema({
   selectedTrigger: String,
   headerText: String,
   buttonText: String,
+  descriptionText: String,
+  imageLink: String,
   menupic: { data: Buffer, contentType: String }
 })
 

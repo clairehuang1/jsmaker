@@ -117,8 +117,9 @@ router.post('/changeModal', function(req,res){
         "bodyTextColor": package.bodyTextColor,
         "bodyText": package.bodyText,
         "buttonText": package.buttonText,
-        "headerText": package.headerText
-
+        "headerText": package.headerText,
+        "descriptionText": package.descriptionText,
+        "imageLink": package.imageLink
       }
       //console.log('data: ', data);
       var result = template(data);
