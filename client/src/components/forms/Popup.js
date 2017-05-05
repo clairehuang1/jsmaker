@@ -1,16 +1,14 @@
+
 import React, { Component } from 'react';
 
-const CustomForm =({
+
+const Popup =({
   handleSubmit,
-  handleChange,
-  handleImageSubmit,
-  handleImageChange,
-  imagePreview
+  handleChange
 })=>{
 return(
     <form onSubmit={handleSubmit}>
-
-    <ul className="forms">
+<ul className="forms">
       <li>
         <label>
           Type:
@@ -83,28 +81,7 @@ return(
           <input className="placeholders" name="description" onChange={handleChange}/>
         </label>
       </li>
-      <li>
-        <label>
-          Duration:
-          <input className="placeholders" name="duration" onChange={handleChange}/>
-        </label>
-      </li>
-      <li>
-        <label>
-          Upload a picture:
 
-
-          <div className="previewComponent">
-
-              <input name="picture" className="fileInput"
-                type="file"
-                onChange={handleImageChange} />
-                {/* idk if the onsubmit accounts for this */}
-
-
-          </div>
-      </label>
-    </li>
 
         <input type="submit" value="Submit" />
         </ul>
@@ -114,4 +91,4 @@ return(
 }
 
 
-export default CustomForm;
+export default Popup;

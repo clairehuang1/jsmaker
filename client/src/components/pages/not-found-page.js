@@ -11,4 +11,5 @@ class NotFoundPage extends Component {
     )
   }
 }
-export default NotFoundPage; 
+
+export default NotFoundPage;

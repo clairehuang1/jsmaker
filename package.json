@@ -45,6 +45,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "react": "^15.3.2",
+    "react-color": "^2.11.7",
     "react-cookie": "^2.0.6",
     "react-dom": "^15.3.2",
     "react-router": "^2.6.1",

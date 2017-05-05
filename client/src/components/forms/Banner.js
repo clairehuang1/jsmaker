@@ -1,15 +1,13 @@
+
 import React, { Component } from 'react';
 
-const CustomForm =({
+
+const Banner =({
   handleSubmit,
-  handleChange,
-  handleImageSubmit,
-  handleImageChange,
-  imagePreview
+  handleChange
 })=>{
 return(
     <form onSubmit={handleSubmit}>
-
     <ul className="forms">
       <li>
         <label>
@@ -41,24 +39,7 @@ return(
           <input className="placeholders" name="height" onChange={handleChange}/>
         </label>
       </li>
-      <li>
-        <label>
-          Border Width:
-          <input className="placeholders" name="borderWidth" onChange={handleChange}/>
-        </label>
-      </li>
-      <li>
-        <label>
-          Border Style:
-          <input className="placeholders" name="borderStyle" onChange={handleChange}/>
-        </label>
-      </li>
-      <li>
-        <label>
-          Border Color:
-          <input className="placeholders" name="borderColor" onChange={handleChange}/>
-        </label>
-      </li>
+
       <li>
         <label>
           Header:
@@ -92,19 +73,10 @@ return(
       <li>
         <label>
           Upload a picture:
+          <input className="placeholders" name="picture" onChange={handleChange}/>
+        </label>
+      </li>
 
-
-          <div className="previewComponent">
-
-              <input name="picture" className="fileInput"
-                type="file"
-                onChange={handleImageChange} />
-                {/* idk if the onsubmit accounts for this */}
-
-
-          </div>
-      </label>
-    </li>
 
         <input type="submit" value="Submit" />
         </ul>
@@ -114,4 +86,4 @@ return(
 }
 
 
-export default CustomForm;
+export default Banner;
