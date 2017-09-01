@@ -1,30 +1,9 @@
-# Let's build some widgets :bowtie:
+# Widget Maker
 
-## API Reference 
-
-### `POST` User Update widget
-
-`url: /changeModal`
-
-In order for a user to change their modal, they must be signed in.
-
-**Type** must be one of the following- *popup, banner, *or* panel*
-**Colors** should be a 6 digit Hex codes
+A widget building app with pop-up modals, butterbars, buttons, sliding panels, and more. First time users must insert script tag inside HTML file. 
+For first time users hosting websites on Wix: Navigate to site editor > Add > more > HTML code > insert the following and save
 
 ```javascript
-{
-"type": String,
-"backgroundColor": Number,
-"textColor": Number, 
-"width": Number,
-"height": Number,
-"borderWidth": Number,
-"borderStyle": String, 
-"borderColor": Number,
-"header": String,
-"item": String,
-"price": Number,
-"description": String,
-"duration": String
-}
+<script src="[your generated link here]"></script>
 ```
+
